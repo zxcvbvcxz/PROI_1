@@ -1,3 +1,9 @@
+nbproject/
+build/
+dist/
+.dep.inc
+
+
 # Prerequisites
 *.d
 
