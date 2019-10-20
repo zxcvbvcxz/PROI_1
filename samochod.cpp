@@ -5,22 +5,14 @@
 
 using namespace std;
 
-//wpisywanie podstawowych informacji
+int samochod::in_info() {
 
-int samochod::wmarka() {
     cout << "Podaj markę pojazdu:" << endl;
     getline(cin, marka);
-    return 0;
-};
 
-int samochod::wmodel() {
     cout << "Podaj model pojazdu:" << endl;
     getline(cin, model);
-    return 0;
-};
 
-int samochod::wrocznik() {
-    //wczytywanie liczby wzor: początek
     while (true) {
         cout << "Podaj rocznik pojazdu:" << endl;
         double temp_double;
@@ -34,52 +26,27 @@ int samochod::wrocznik() {
         }
     }
     return 0;
-};
+}
 
-//wypisywanie podstawowych informacji
+int samochod::out_info() {
+    cout << "--------------------------------------" << endl;
 
-int samochod::rmarka() {
     if (marka.empty()) {
         cout << "Pole marka jest puste" << endl;
-        return 0;
-    }
-    cout << "Marka:" << marka << endl;
+    } else
+        cout << "Marka:" << marka << endl;
 
-    return 0;
-};
-
-int samochod::rmodel() {
     if (marka.empty()) {
         cout << "Pole model jest puste" << endl;
-        return 0;
-    }
-    cout << "Model:" << model << endl;
+    } else
+        cout << "Model:" << model << endl;
 
-    return 0;
-};
-
-int samochod::rrocznik() {
     if (marka.empty()) {
         cout << "Pole rocznik jest puste" << endl;
-        return 0;
-    }
-    cout << "Rocznik:" << rocznik << endl;
-    cout.clear();
+    } else
+        cout << "Rocznik:" << rocznik << endl;
+    
+    cout << "--------------------------------------" << endl;
 
-    return 0;
-};
-
-int samochod::rinfo() {
-    rmarka();
-    rmodel();
-    rrocznik();
-
-    return 0;
-};
-
-int samochod::winfo() {
-    wmarka();
-    wmodel();
-    wrocznik();
     return 0;
 };

@@ -18,11 +18,9 @@ using namespace std;
 
 int main(int argc, char** argv) {
     samochod pojazd1;    
-    pojazd1.rinfo();
-    pojazd1.winfo();
-    pojazd1.rinfo();
-    pojazd1.winfo();
-    pojazd1.rinfo();
+    pojazd1.out_info();
+    pojazd1.in_info();
+    pojazd1.out_info();
     
     cout << "Koniec programu" << endl;
     

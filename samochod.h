@@ -12,18 +12,10 @@ private:
     string model;
     int rocznik;
     
-    int wmarka();//wpisywanie danych
-    int wmodel();
-    int wrocznik();    
-    int rmarka();//wypisywanie danych
-    int rmodel();
-    int rrocznik();
     
 public:    
-    int rinfo();
-    int winfo();
-    
-    
+    int in_info();
+    int out_info();  
 };
 
 
