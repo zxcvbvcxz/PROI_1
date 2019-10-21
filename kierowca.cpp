@@ -14,14 +14,14 @@
 #include "kierowca.h"
 #include"Funkcje_pomocnicze.h"
 
-kierowca::kierowca() {
-}
-
-kierowca::kierowca(const kierowca& orig) {
-}
-
-kierowca::~kierowca() {
-}
+//kierowca::kierowca() {
+//}
+//
+//kierowca::kierowca(const kierowca& orig) {
+//}
+//
+//kierowca::~kierowca() {
+//}
 
 kierowca::in_kierowca() {
     cout << "Podaj imię kierowcy" << endl;
@@ -69,7 +69,7 @@ kierowca::out_kierowca() {
     if (prawo_jazdy == true) {
         cout << "Tak" << endl;
     } else {
-        cout << "nie" << endl;
+        cout << "Nie" << endl;
     }
     cout << "--------------------------------------" << endl;
 }

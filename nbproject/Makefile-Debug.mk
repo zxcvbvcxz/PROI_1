@@ -38,6 +38,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Funkcje_pomocnicze.o \
 	${OBJECTDIR}/kierowca.o \
 	${OBJECTDIR}/main.o \
+	${OBJECTDIR}/pasazer.o \
 	${OBJECTDIR}/samochod.o
 
 
@@ -79,6 +80,11 @@ ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
+
+${OBJECTDIR}/pasazer.o: pasazer.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/pasazer.o pasazer.cpp
 
 ${OBJECTDIR}/samochod.o: samochod.cpp
 	${MKDIR} -p ${OBJECTDIR}
