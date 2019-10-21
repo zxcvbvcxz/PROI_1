@@ -26,9 +26,6 @@ private:
     silnik silnik_1;
 
 
-
-
-
 public:
     int in_info();
     int out_info();

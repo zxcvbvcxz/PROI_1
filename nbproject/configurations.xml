@@ -19,6 +19,8 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>DEBUG.cpp</itemPath>
+      <itemPath>DEMO.cpp</itemPath>
       <itemPath>Funkcje_pomocnicze.cpp</itemPath>
       <itemPath>bagaznik.cpp</itemPath>
       <itemPath>bak.cpp</itemPath>
@@ -53,6 +55,10 @@
           <standard>11</standard>
         </ccTool>
       </compileType>
+      <item path="DEBUG.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DEMO.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="Funkcje_pomocnicze.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Funkcje_pomocnicze.h" ex="false" tool="3" flavor2="0">
@@ -105,6 +111,10 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="DEBUG.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DEMO.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="Funkcje_pomocnicze.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Funkcje_pomocnicze.h" ex="false" tool="3" flavor2="0">

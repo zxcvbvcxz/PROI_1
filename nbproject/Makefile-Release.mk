@@ -35,6 +35,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/DEBUG.o \
+	${OBJECTDIR}/DEMO.o \
 	${OBJECTDIR}/Funkcje_pomocnicze.o \
 	${OBJECTDIR}/bagaznik.o \
 	${OBJECTDIR}/bak.o \
@@ -68,6 +70,16 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/proi_1.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/proi_1 ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/DEBUG.o: DEBUG.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DEBUG.o DEBUG.cpp
+
+${OBJECTDIR}/DEMO.o: DEMO.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DEMO.o DEMO.cpp
 
 ${OBJECTDIR}/Funkcje_pomocnicze.o: Funkcje_pomocnicze.cpp
 	${MKDIR} -p ${OBJECTDIR}
