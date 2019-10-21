@@ -36,17 +36,45 @@ int samochod::out_info() {
     } else
         cout << "Marka:" << marka << endl;
 
-    if (marka.empty()) {
+    if (model.empty()) {
         cout << "Pole model jest puste" << endl;
     } else
         cout << "Model:" << model << endl;
 
-    if (marka.empty()) {
+    if (rocznik == 0) {
         cout << "Pole rocznik jest puste" << endl;
     } else
         cout << "Rocznik:" << rocznik << endl;
-    
-    cout << "--------------------------------------" << endl;
 
+    cout << "--------------------------------------" << endl;
     return 0;
 };
+
+int samochod::in_kierowca() {
+    if (kierowca_1 == nullptr) {
+        kierowca_1 = new kierowca;
+    }
+    kierowca_1->in_kierowca();
+    return 0;
+}
+
+int samochod::out_kierowca() {
+    if (kierowca_1 == nullptr) {
+        cout << "Nie ma kierowcy" << endl;
+        return 0;
+    }
+    kierowca_1->out_kierowca();
+    return 0;
+}
+
+int samochod::usun_kierowca() {
+    if (kierowca_1 == nullptr) {
+        cout << "Nie ma kierowcy" << endl;
+        return 0;
+    }
+    delete kierowca_1;
+    return 0;
+
+}
+
+

@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/Funkcje_pomocnicze.o \
+	${OBJECTDIR}/kierowca.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/samochod.o
 
@@ -68,6 +69,11 @@ ${OBJECTDIR}/Funkcje_pomocnicze.o: Funkcje_pomocnicze.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Funkcje_pomocnicze.o Funkcje_pomocnicze.cpp
+
+${OBJECTDIR}/kierowca.o: kierowca.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/kierowca.o kierowca.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}

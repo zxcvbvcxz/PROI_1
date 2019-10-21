@@ -14,7 +14,7 @@
 #ifndef FUNKCJE_POMOCNICZE_H
 #define FUNKCJE_POMOCNICZE_H
 
-bool wczytaj_double(double &liczba);//Wczytuje string i zwraca double
+bool wczytaj_double(double &liczba);//Wczytuje string i zwraca double do &liczba
 
 
 #endif /* FUNKCJE_POMOCNICZE_H */
