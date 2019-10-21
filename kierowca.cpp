@@ -74,3 +74,6 @@ kierowca::out_kierowca() {
     cout << "--------------------------------------" << endl;
 }
 
+bool kierowca::czy_prawo_jazdy() {
+    return prawo_jazdy;
+}

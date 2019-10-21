@@ -23,6 +23,7 @@ public:
     
     int in_kierowca();
     int out_kierowca();
+    bool czy_prawo_jazdy();
     
 
 

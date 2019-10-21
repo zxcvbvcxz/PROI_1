@@ -1,0 +1,40 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/* 
+ * File:   bak.h
+ * Author: Bogusław Malewski
+ *
+ * Created on 21 października 2019, 17:08
+ */
+
+#ifndef BAK_H
+#define BAK_H
+
+class bak
+{
+private:
+
+    enum skrajne_wartosci
+    {
+        pusty = 0, pelny = 50
+    };
+    double stan_bak = 25;
+
+
+public:
+    //    bak();
+    //    bak(const bak& orig);
+    //    virtual ~bak();
+    int zatankuj(double litry);
+    double spal(double litry);
+    double info_bak();
+
+
+};
+
+#endif /* BAK_H */
+

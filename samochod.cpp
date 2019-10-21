@@ -3,6 +3,8 @@
 #include"samochod.h"
 #include"Funkcje_pomocnicze.h"
 #include "pasazer.h"
+#include "bak.h"
+#include "silnik.h"
 
 using namespace std;
 
@@ -42,6 +44,17 @@ int samochod::in_info() {
         }
     }
     pasazerowie = new pasazer[miejsca_dla_pasazerow];
+
+    while (true) {
+        cout << "Podaj spalanie na km pojazdu:" << endl;
+        double temp_double;
+        if (wczytaj_double(temp_double)) {
+            spalanie_na_km = temp_double;
+            break;
+
+        }
+    }
+
     return 0;
 }
 
@@ -101,6 +114,14 @@ int samochod::usun_kierowca() {
 
 }
 
+bool samochod::out_prawo_jazdy() {
+    if (kierowca_1 == nullptr) {
+        cout << "Nie ma kierowcy w samochodzie" << endl;
+        return false;
+    }
+    return kierowca_1->czy_prawo_jazdy();
+}
+
 int samochod::in_pasazer(int miejsce) {
     if (miejsca_dla_pasazerow == 0) {
         cout << "Najpierw wprowadź informacje o miejscach dla pasażerów" << endl;
@@ -131,4 +152,76 @@ int samochod::out_all_pasazer() {
         pasazerowie[i].out_pasazer();
 
     }
+}
+
+int samochod::open_bagaznik() {
+    bagaznik_1.otworz();
+}
+
+int samochod::close_bagaznik() {
+    bagaznik_1.zamknij();
+}
+
+int samochod::zaladuj_bagaznik() {
+    bagaznik_1.zaladuj();
+}
+
+int samochod::rozladuj_bagaznik() {
+    bagaznik_1.rozladuj();
+}
+
+int samochod::in_bak() {
+    double litry;
+    while (true) {
+        cout << "Podaj ile litrów paliwa chesz zatankować" << endl;
+        if (wczytaj_double(litry)) {
+            break;
+        }
+    }
+    bak_1.zatankuj(litry);
+}
+
+int samochod::out_bak() {
+    return bak_1.info_bak();
+}
+
+int samochod::on_silnik() {
+    if (bak_1.info_bak() > 0) {
+        silnik_1.wlacz();
+    } else {
+        cout << "Bak jest pusty" << endl << "Musisz dolać paliwa" << endl;
+    }
+    return 0;
+}
+
+int samochod::off_silnik() {
+    silnik_1.wylacz();
+    return 0;
+}
+
+int samochod::przejedz(double kilometry) {
+    if (kierowca_1 == nullptr) {
+        cout << "Nie można wyruszyć bo:" << endl;
+        cout << "Nie ma kierowcy w samochodzie" << endl;
+        return 0;
+    }
+    if (bak_1.info_bak() == 0) {
+        cout << "Nie można wyruszyć bo:" << endl;
+        cout << "Nie ma paliwa w baku" << endl;
+        return 0;
+    }
+    if (bagaznik_1.czy_otwarty()) {
+        cout << "Nie można wyruszyć bo:" << endl;
+        cout << "Bagażnik jest otwarty" << endl;
+        return 0;
+    }
+    if (kierowca_1->czy_prawo_jazdy()) {
+        double spalone_paliwo;
+        spalone_paliwo = bak_1.spal(kilometry * spalanie_na_km);
+        cout << "Udało się przejechać " << spalone_paliwo / spalanie_na_km << " km" << endl;
+    } else {
+        cout << "Nie można wyruszyć bo:" << endl;
+        cout << "Kierowca nie ma prawa jazdy" << endl;
+    }
+    return 0;
 }
