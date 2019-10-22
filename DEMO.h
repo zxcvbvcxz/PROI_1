@@ -4,7 +4,17 @@
  * and open the template in the editor.
  */
 
-#include <cstdlib>
-#include "samochod.h"
-#include "kierowca.h"
-#include<iostream>
+/* 
+ * File:   DEMO.h
+ * Author: Bogusław Malewski
+ *
+ * Created on 22 października 2019, 16:53
+ */
+
+#ifndef DEMO_H
+#define DEMO_H
+
+
+
+#endif /* DEMO_H */
+

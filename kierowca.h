@@ -32,6 +32,7 @@ public:
     bool operator>(kierowca kier1);
     bool operator==(kierowca kier1);
     friend ostream & operator<<(ostream & os,const kierowca &kier1);
+    friend istream & operator>>(istream & is, kierowca &kier1);
 };
 #endif /* KIEROWCA_H */
 

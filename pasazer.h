@@ -22,7 +22,7 @@ using namespace std;
 class pasazer
 {
 private:
-    bool obecny=false;
+    bool obecny = false;
     string imie;
     string nazwisko;
     int wiek = 0;
@@ -31,10 +31,18 @@ public:
     //    pasazer();
     //    pasazer(const pasazer& orig);
     //    virtual ~pasazer();
-    
+
     int in_pasazer();
     int out_pasazer();
-
+    bool operator++();
+    bool operator--();
+    bool operator<=(pasazer pas1);
+    bool operator<(pasazer pas1);
+    bool operator>=(pasazer pas1);
+    bool operator>(pasazer pas1);
+    bool operator==(pasazer pas1);
+    friend ostream & operator<<(ostream & os, const pasazer &pas1);
+    friend istream & operator>>(istream & is, pasazer &pas1);
 
 };
 

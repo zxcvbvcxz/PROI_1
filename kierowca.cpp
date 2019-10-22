@@ -133,4 +133,30 @@ ostream & operator<<(ostream & os, const kierowca &kier1) {
         cout << "Nie" << endl;
     }
     cout << "--------------------------------------" << endl;
+    return os;
+}
+
+istream & operator>>(istream & is, kierowca &kier1) {
+    cout << "Podaj imię kierowcy" << endl;
+    getline(cin, kier1.imie);
+
+    cout << "Podaj nazwisko kierowcy" << endl;
+    getline(cin, kier1.nazwisko);
+
+
+    double temp_double;
+    while (true) {
+        cout << "Podaj wiek kierowcy" << endl;
+        if (wczytaj_double(temp_double)) {
+            kier1.wiek = (int) temp_double;
+            break;
+        }
+    }
+
+
+    cout << "Czy kierowca ma prawo jazdy?" << endl;
+    cout << " Wpisz 1 jeśli tak, wpisz 0 jeśli nie." << endl;
+    wczytaj_double(temp_double);
+    kier1.prawo_jazdy = temp_double;
+    return is;
 }

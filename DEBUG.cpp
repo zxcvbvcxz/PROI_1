@@ -4,3 +4,7 @@
  * and open the template in the editor.
  */
 
+#include <cstdlib>
+#include<iostream>
+#include "samochod.h"
+#include "kierowca.h"

@@ -4,6 +4,8 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>DEBUG.h</itemPath>
+      <itemPath>DEMO.h</itemPath>
       <itemPath>Funkcje_pomocnicze.h</itemPath>
       <itemPath>bagaznik.h</itemPath>
       <itemPath>bak.h</itemPath>
@@ -57,7 +59,11 @@
       </compileType>
       <item path="DEBUG.cpp" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="DEBUG.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="DEMO.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DEMO.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Funkcje_pomocnicze.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -113,7 +119,11 @@
       </compileType>
       <item path="DEBUG.cpp" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="DEBUG.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="DEMO.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DEMO.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Funkcje_pomocnicze.cpp" ex="false" tool="1" flavor2="0">
       </item>
