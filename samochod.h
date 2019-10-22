@@ -27,6 +27,8 @@ private:
 
 
 public:
+    ~samochod();
+    samochod(const samochod & sam1);
     int in_info();
     int out_info();
 

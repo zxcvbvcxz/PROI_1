@@ -8,6 +8,40 @@
 
 using namespace std;
 
+samochod::~samochod() {
+    if (kierowca_1 != nullptr) {
+        delete kierowca_1;
+    }
+    if (pasazerowie != nullptr) {
+        delete[] pasazerowie;
+    }
+}
+
+samochod::samochod(const samochod & sam1) {
+    marka = sam1.marka;
+    model = sam1.model;
+    rocznik = sam1.rocznik;
+    miejsca_dla_pasazerow = sam1.miejsca_dla_pasazerow;
+    spalanie_na_100km = sam1.spalanie_na_100km;
+    if (sam1.kierowca_1 == nullptr) {
+        kierowca_1 = nullptr;
+    } else {
+        kierowca_1 = new kierowca;
+        *kierowca_1 = *sam1.kierowca_1;
+    }
+    if (sam1.pasazerowie == nullptr) {
+        pasazerowie = nullptr;
+    } else {
+        pasazerowie = new pasazer[sam1.miejsca_dla_pasazerow] ;
+        for (int i = 0; i < sam1.miejsca_dla_pasazerow; i++) {
+            pasazerowie[i] = sam1.pasazerowie[i];
+        }
+    }
+    bagaznik_1 = sam1.bagaznik_1;
+    bak_1 = sam1.bak_1;
+    silnik_1 = sam1.silnik_1;
+}
+
 int samochod::in_info() {
 
     cout << "Podaj markę pojazdu:" << endl;
@@ -81,7 +115,7 @@ int samochod::out_info() {
     } else
         cout << "Miejsca dla pasazerow:" << miejsca_dla_pasazerow << endl;
 
-    cout << "Spalanie na 100 km" << spalanie_na_100km << endl;
+    cout << "Spalanie na 100 km:" << spalanie_na_100km << "L" << endl;
 
     cout << "--------------------------------------" << endl;
     return 0;
@@ -219,8 +253,8 @@ int samochod::przejedz(double kilometry) {
     }
     if (kierowca_1->czy_prawo_jazdy()) {
         double spalone_paliwo;
-        spalone_paliwo = bak_1.spal(kilometry * spalanie_na_100km);
-        cout << "Udało się przejechać " << spalone_paliwo / spalanie_na_100km << " km" << endl;
+        spalone_paliwo = bak_1.spal(kilometry * (spalanie_na_100km / 100));
+        cout << "Udało się przejechać " << spalone_paliwo / (100 * spalanie_na_100km) << " km" << endl;
     } else {
         cout << "Nie można wyruszyć bo:" << endl;
         cout << "Kierowca nie ma prawa jazdy" << endl;
