@@ -44,3 +44,19 @@ int silnik::wylacz() {
     }
     return 0;
 }
+
+bool silnik::operator++() {
+    wlacz();
+}
+
+bool silnik::operator--() {
+    wylacz();
+}
+
+ostream & operator<<(ostream & os, const silnik &silnik1) {
+    if (silnik1.wlaczony) {
+        cout << "Silnik jest włączony" << endl;
+    } else {
+        cout << "Silnik jest wyłączony" << endl;
+    }
+}

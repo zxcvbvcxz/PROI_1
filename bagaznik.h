@@ -3,6 +3,10 @@
 #ifndef BAGAZNIK_H
 #define BAGAZNIK_H
 
+#include <iostream>
+
+using namespace std;
+
 class bagaznik
 {
 private:
@@ -18,7 +22,7 @@ public:
     int zaladuj();
     int rozladuj();
     bool czy_otwarty();
-    
+    friend ostream & operator<<(ostream & os,const bagaznik &bag1);
 
 
 };

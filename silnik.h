@@ -14,6 +14,10 @@
 #ifndef SILNIK_H
 #define SILNIK_H
 
+#include <iostream>
+#include <string>
+
+using namespace std;
 
 class silnik
 {
@@ -27,7 +31,9 @@ public:
 
     int wlacz();
     int wylacz();
-
+    bool operator++();
+    bool operator--();
+    friend ostream & operator<<(ostream & os,const silnik &silnik1);
 };
 
 #endif /* SILNIK_H */

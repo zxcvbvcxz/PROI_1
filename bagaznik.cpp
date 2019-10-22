@@ -68,3 +68,11 @@ int bagaznik::rozladuj() {
 bool bagaznik::czy_otwarty() {
     return otwarty;
 }
+
+ostream & operator<<(ostream & os, bagaznik &bag1) {
+    if (bag1.czy_otwarty()) {
+        cout << "Bagażnik jest otwarty" << endl;
+    } else {
+        cout << "Bagażnik jest zamknięty" << endl;
+    }
+}

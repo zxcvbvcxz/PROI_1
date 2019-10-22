@@ -41,7 +41,7 @@ public:
     bool operator>=(pasazer pas1);
     bool operator>(pasazer pas1);
     bool operator==(pasazer pas1);
-    friend ostream & operator<<(ostream & os, const pasazer &pas1);
+    friend ostream & operator<<(ostream & os, const pasazer &pas1);    
     friend istream & operator>>(istream & is, pasazer &pas1);
 
 };
