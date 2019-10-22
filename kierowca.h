@@ -15,11 +15,7 @@ private:
     int wiek = 0;
     bool prawo_jazdy=false;
 
-
 public:
-    //    kierowca();
-    //    kierowca(const kierowca& orig);
-    //    virtual ~kierowca();
 
     int in_kierowca();
     int out_kierowca();

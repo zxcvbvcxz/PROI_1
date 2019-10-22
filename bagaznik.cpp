@@ -5,14 +5,7 @@
 
 using namespace std;
 
-//bagaznik::bagaznik() {
-//}
-//
-//bagaznik::bagaznik(const bagaznik& orig) {
-//}
-//
-//bagaznik::~bagaznik() {
-//}
+
 
 int bagaznik::otworz() {
     if (otwarty) {
@@ -75,4 +68,5 @@ ostream & operator<<(ostream & os, bagaznik &bag1) {
     } else {
         cout << "Bagażnik jest zamknięty" << endl;
     }
+    return os;
 }

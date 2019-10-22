@@ -14,9 +14,7 @@ private:
     bool zaladowany;
 
 public:
-    //    bagaznik();
-    //    bagaznik(const bagaznik& orig);
-    //    virtual ~bagaznik();
+
     int otworz();
     int zamknij();
     int zaladuj();

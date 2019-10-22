@@ -46,10 +46,10 @@ int samochod::in_info() {
     pasazerowie = new pasazer[miejsca_dla_pasazerow];
 
     while (true) {
-        cout << "Podaj spalanie na km pojazdu:" << endl;
+        cout << "Podaj spalanie (w litrach paliwa na km) pojazdu:" << endl;
         double temp_double;
         if (wczytaj_double(temp_double)) {
-            spalanie_na_km = temp_double;
+            spalanie_na_100km = temp_double;
             break;
 
         }
@@ -80,6 +80,8 @@ int samochod::out_info() {
         cout << "Pole miejsca dla pasazerow jest puste" << endl;
     } else
         cout << "Miejsca dla pasazerow:" << miejsca_dla_pasazerow << endl;
+
+    cout << "Spalanie na 100 km" << spalanie_na_100km << endl;
 
     cout << "--------------------------------------" << endl;
     return 0;
@@ -217,11 +219,24 @@ int samochod::przejedz(double kilometry) {
     }
     if (kierowca_1->czy_prawo_jazdy()) {
         double spalone_paliwo;
-        spalone_paliwo = bak_1.spal(kilometry * spalanie_na_km);
-        cout << "Udało się przejechać " << spalone_paliwo / spalanie_na_km << " km" << endl;
+        spalone_paliwo = bak_1.spal(kilometry * spalanie_na_100km);
+        cout << "Udało się przejechać " << spalone_paliwo / spalanie_na_100km << " km" << endl;
     } else {
         cout << "Nie można wyruszyć bo:" << endl;
         cout << "Kierowca nie ma prawa jazdy" << endl;
     }
     return 0;
+}
+
+bool samochod::operator++() {
+    this->silnik_1.operator++();
+}
+
+bool samochod::operator--() {
+    this->silnik_1.operator--();
+}
+
+ostream & operator<<(ostream & os, samochod &samochod1) {
+    samochod1.out_info();
+    return os;
 }

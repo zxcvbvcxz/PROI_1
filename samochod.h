@@ -18,7 +18,7 @@ private:
     string model;
     int rocznik = 0;
     int miejsca_dla_pasazerow = 0;
-    double spalanie_na_km = 9;
+    double spalanie_na_100km = 9;
     kierowca * kierowca_1 = nullptr;
     pasazer * pasazerowie = nullptr;
     bagaznik bagaznik_1;
@@ -51,6 +51,10 @@ public:
     int off_silnik();
 
     int przejedz(double kilometry);
+    
+    bool operator++();
+    bool operator--();
+    friend ostream & operator<<(ostream & os,samochod &samochod1);
 };
 
 

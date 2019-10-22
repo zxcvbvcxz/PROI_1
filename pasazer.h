@@ -28,9 +28,6 @@ private:
     int wiek = 0;
 
 public:
-    //    pasazer();
-    //    pasazer(const pasazer& orig);
-    //    virtual ~pasazer();
 
     int in_pasazer();
     int out_pasazer();

@@ -1,29 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/* 
- * File:   bak.cpp
- * Author: Bogusław Malewski
- * 
- * Created on 21 października 2019, 17:08
- */
 
 #include "bak.h"
 #include <string>
 #include <iostream>
 
 using namespace std;
-//bak::bak() {
-//}
-//
-//bak::bak(const bak& orig) {
-//}
-//
-//bak::~bak() {
-//}
+
 
 int bak::zatankuj(double litry) {
     if (stan_bak == pelny) {
@@ -152,6 +133,7 @@ const bak & bak::operator-(double litry) {
 
 ostream & operator<<(ostream & os, const bak &bak1) {
     cout << "W Baku jest " << bak1.stan_bak << "L paliwa" << endl;
+    return os;
 }
 
 //  const bak & operator-(bak bak1);

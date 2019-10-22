@@ -14,14 +14,7 @@
 #include "kierowca.h"
 #include"Funkcje_pomocnicze.h"
 
-//kierowca::kierowca() {
-//}
-//
-//kierowca::kierowca(const kierowca& orig) {
-//}
-//
-//kierowca::~kierowca() {
-//}
+
 
 int kierowca::in_kierowca() {
     cout << "Podaj imię kierowcy" << endl;

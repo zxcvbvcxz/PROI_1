@@ -23,12 +23,7 @@ class silnik
 {
 private:
     bool wlaczony = false;
-
 public:
-    //    silnik();
-    //    silnik(const silnik& orig);
-    //    virtual ~silnik();
-
     int wlacz();
     int wylacz();
     bool operator++();
