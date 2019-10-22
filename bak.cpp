@@ -2,9 +2,9 @@
 #include "bak.h"
 #include <string>
 #include <iostream>
+#include "Funkcje_pomocnicze.h"
 
 using namespace std;
-
 
 int bak::zatankuj(double litry) {
     if (stan_bak == pelny) {
@@ -15,8 +15,9 @@ int bak::zatankuj(double litry) {
         stan_bak += litry;
         cout << "Dolano " << litry << "L paliwa do baku" << endl;
     } else {
+        double temp_d = stan_bak;
         stan_bak = pelny;
-        cout << "Dolano " << pelny - stan_bak << "L paliwa do baku" << endl;
+        cout << "Dolano " << pelny - temp_d << "L paliwa do baku" << endl;
         cout << "Bak jest teraz pełny" << endl;
     }
     return 0;
@@ -131,9 +132,36 @@ const bak & bak::operator-(double litry) {
     }
 }
 
-ostream & operator<<(ostream & os, const bak &bak1) {
+ostream & operator<<(ostream & os, bak &bak1) {
     cout << "W Baku jest " << bak1.stan_bak << "L paliwa" << endl;
     return os;
+}
+
+istream & operator>>(istream & is, bak &bak1) {
+    double temp_double;
+    double litry;
+    while (true) {
+        cout << "Ile litrów paliwa chcesz wlać?" << endl;
+        if (wczytaj_double(temp_double)) {
+            litry = (int) temp_double;
+            break;
+        }
+    }
+    if (bak1.stan_bak == bak1.pelny) {
+        cout << "Nie można dolać plaiwa" << endl << "Bak jest pełny" << endl;
+        return is;
+    }
+    if (litry + bak1.stan_bak <= bak1.pelny) {
+
+        bak1.stan_bak += litry;
+        cout << "Dolano " << litry << "L paliwa do baku" << endl;
+    } else {
+        double temp_d = bak1.stan_bak;
+        bak1.stan_bak = bak1.pelny;
+        cout << "Dolano " << bak1.pelny - temp_d << "L paliwa do baku" << endl;
+        cout << "Bak jest teraz pełny" << endl;
+    }
+    return is;
 }
 
 //  const bak & operator-(bak bak1);

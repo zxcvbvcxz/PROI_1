@@ -34,7 +34,7 @@ public:
     const bak & operator+(double litry);
     const bak & operator-(bak bak1);
     const bak & operator-(double litry);
-    friend ostream & operator<<(ostream & os,const bak &bak1);
+    friend ostream & operator<<(ostream & os, bak &bak1);
     friend istream & operator>>(istream & is, bak &bak1);
 
 };

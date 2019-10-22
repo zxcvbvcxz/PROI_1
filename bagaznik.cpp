@@ -5,8 +5,6 @@
 
 using namespace std;
 
-
-
 int bagaznik::otworz() {
     if (otwarty) {
         cout << "Bagażnik jest już otwarty" << endl;

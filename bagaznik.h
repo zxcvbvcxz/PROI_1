@@ -10,8 +10,8 @@ using namespace std;
 class bagaznik
 {
 private:
-    bool otwarty;
-    bool zaladowany;
+    bool otwarty=false;
+    bool zaladowany=false;
 
 public:
 
@@ -20,7 +20,7 @@ public:
     int zaladuj();
     int rozladuj();
     bool czy_otwarty();
-    friend ostream & operator<<(ostream & os,const bagaznik &bag1);
+    friend ostream & operator<<(ostream & os, bagaznik &bag1);
 
 
 };

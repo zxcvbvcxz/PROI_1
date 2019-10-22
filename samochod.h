@@ -27,8 +27,10 @@ private:
 
 
 public:
+    samochod();
     ~samochod();
     samochod(const samochod & sam1);
+    samochod &operator=(const samochod & sam1);
     int in_info();
     int out_info();
 
@@ -53,10 +55,10 @@ public:
     int off_silnik();
 
     int przejedz(double kilometry);
-    
+
     bool operator++();
     bool operator--();
-    friend ostream & operator<<(ostream & os,samochod &samochod1);
+    friend ostream & operator<<(ostream & os, samochod &samochod1);
 };
 
 

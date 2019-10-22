@@ -8,6 +8,14 @@
 
 using namespace std;
 
+samochod::samochod() {
+    rocznik = 0;
+    miejsca_dla_pasazerow = 0;
+    spalanie_na_100km = 9;
+    kierowca_1 = nullptr;
+    pasazerowie = nullptr;
+}
+
 samochod::~samochod() {
     if (kierowca_1 != nullptr) {
         delete kierowca_1;
@@ -32,7 +40,32 @@ samochod::samochod(const samochod & sam1) {
     if (sam1.pasazerowie == nullptr) {
         pasazerowie = nullptr;
     } else {
-        pasazerowie = new pasazer[sam1.miejsca_dla_pasazerow] ;
+        pasazerowie = new pasazer[sam1.miejsca_dla_pasazerow];
+        for (int i = 0; i < sam1.miejsca_dla_pasazerow; i++) {
+            pasazerowie[i] = sam1.pasazerowie[i];
+        }
+    }
+    bagaznik_1 = sam1.bagaznik_1;
+    bak_1 = sam1.bak_1;
+    silnik_1 = sam1.silnik_1;
+}
+
+samochod& samochod::operator=(const samochod & sam1) {
+    marka = sam1.marka;
+    model = sam1.model;
+    rocznik = sam1.rocznik;
+    miejsca_dla_pasazerow = sam1.miejsca_dla_pasazerow;
+    spalanie_na_100km = sam1.spalanie_na_100km;
+    if (sam1.kierowca_1 == nullptr) {
+        kierowca_1 = nullptr;
+    } else {
+        kierowca_1 = new kierowca;
+        *kierowca_1 = *sam1.kierowca_1;
+    }
+    if (sam1.pasazerowie == nullptr) {
+        pasazerowie = nullptr;
+    } else {
+        pasazerowie = new pasazer[sam1.miejsca_dla_pasazerow];
         for (int i = 0; i < sam1.miejsca_dla_pasazerow; i++) {
             pasazerowie[i] = sam1.pasazerowie[i];
         }
@@ -80,7 +113,7 @@ int samochod::in_info() {
     pasazerowie = new pasazer[miejsca_dla_pasazerow];
 
     while (true) {
-        cout << "Podaj spalanie (w litrach paliwa na km) pojazdu:" << endl;
+        cout << "Podaj spalanie (w litrach paliwa na  100km) pojazdu:" << endl;
         double temp_double;
         if (wczytaj_double(temp_double)) {
             spalanie_na_100km = temp_double;

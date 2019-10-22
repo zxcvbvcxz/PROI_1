@@ -14,6 +14,14 @@
 #ifndef DEBUG_H
 #define DEBUG_H
 
+int wybor_testu();
+int testuj_all();
+int testuj_kierowca();
+int testuj_pasazer();
+int testuj_bagaznik();
+int testuj_bak();
+int testuj_silnik();
+int testuj_samochod();
 
 
 #endif /* DEBUG_H */
