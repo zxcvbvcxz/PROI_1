@@ -10,19 +10,15 @@ using namespace std;
 class bagaznik
 {
 private:
-    bool otwarty=false;
-    bool zaladowany=false;
-
+    bool otwarty = false;
+    bool zaladowany = false;
 public:
-
-    int otworz();
-    int zamknij();
-    int zaladuj();
-    int rozladuj();
-    bool czy_otwarty();
-    friend ostream & operator<<(ostream & os, bagaznik &bag1);
-
-
+    int otworz(); //otwiera bagażnik
+    int zamknij(); //zamyka bagażnik
+    int zaladuj(); //ładuje bagażnik
+    int rozladuj(); //rozładowuje bagażnik
+    bool czy_otwarty(); //zwraca true jeśli otwarty bagażnik
+    friend ostream & operator<<(ostream & os, bagaznik &bag1); //wypisuje stan bagażnika
 };
 
 #endif /* BAGAZNIK_H */

@@ -29,17 +29,18 @@ private:
 
 public:
 
-    int in_pasazer();
-    int out_pasazer();
-    bool operator++();
-    bool operator--();
-    bool operator<=(pasazer pas1);
-    bool operator<(pasazer pas1);
-    bool operator>=(pasazer pas1);
-    bool operator>(pasazer pas1);
-    bool operator==(pasazer pas1);
-    friend ostream & operator<<(ostream & os, const pasazer &pas1);    
-    friend istream & operator>>(istream & is, pasazer &pas1);
+    int in_pasazer(); //wprowadza dane do klasy
+    int out_pasazer(); //wypisuje dane z klasy
+    int usun_pasazer();//usuwa pasazera 
+    bool operator++(); //zwiększa wiek pasażera
+    bool operator--(); //zmniejsza wiek pasażera
+    bool operator<=(pasazer pas1); //porównuje wieki pasażerów
+    bool operator<(pasazer pas1); //porównuje wieki pasażerów
+    bool operator>=(pasazer pas1); //porównuje wieki pasażerów
+    bool operator>(pasazer pas1); //porównuje wieki pasażerów
+    bool operator==(pasazer pas1); //porównuje wieki pasażerów
+    friend ostream & operator<<(ostream & os, const pasazer &pas1); //wypisuje dane z klasy
+    friend istream & operator>>(istream & is, pasazer &pas1); //wprowadza dane do klasy
 
 };
 

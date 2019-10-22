@@ -17,18 +17,18 @@ private:
 
 public:
 
-    int in_kierowca();
-    int out_kierowca();
-    bool czy_prawo_jazdy();
-    bool operator++();
-    bool operator--();
-    bool operator<=(kierowca kier1);
-    bool operator<(kierowca kier1);
-    bool operator>=(kierowca kier1);
-    bool operator>(kierowca kier1);
-    bool operator==(kierowca kier1);
-    friend ostream & operator<<(ostream & os,const kierowca &kier1);
-    friend istream & operator>>(istream & is, kierowca &kier1);
+    int in_kierowca();//wprowadzenie danych do klasy
+    int out_kierowca();//wypisywanie danych
+    bool czy_prawo_jazdy();//zwraca true jeśli kierowca ma prawo jazdy
+    bool operator++();//zwiększa wiek kierowcy o 1
+    bool operator--();//zmniejsza wiek kierowcy o 1
+    bool operator<=(kierowca kier1);//porównuje wieki kierowców
+    bool operator<(kierowca kier1);//porównuje wieki kierowców
+    bool operator>=(kierowca kier1);//porównuje wieki kierowców
+    bool operator>(kierowca kier1);//porównuje wieki kierowców
+    bool operator==(kierowca kier1);//porównuje wieki kierowców
+    friend ostream & operator<<(ostream & os,const kierowca &kier1);//wypisywanie danych klasy
+    friend istream & operator>>(istream & is, kierowca &kier1);//wprowadzenie danych do klasy
 };
 #endif /* KIEROWCA_H */
 

@@ -59,6 +59,13 @@ int pasazer::out_pasazer() {
     return 0;
 }
 
+int pasazer::usun_pasazer(){
+    obecny=false;
+    imie.clear();
+    nazwisko.clear();
+    wiek=0;
+}
+
 bool pasazer::operator++() {
     this->wiek++;
 }

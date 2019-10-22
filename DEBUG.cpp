@@ -174,6 +174,9 @@ int testuj_bak() {
 
     cin >> bak1;
     cout << bak1;
+    cout << bak2;
+    bak1 + bak2;
+    cout << bak2 << endl;
     cout << "Kończe test klasy bak" << endl;
     return 0;
 }

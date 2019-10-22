@@ -208,6 +208,10 @@ int samochod::out_pasazer(int miejsce) {
         cout << "Najpierw wprowadź informacje o miejscach dla pasażerów" << endl;
         return 0;
     }
+    if (miejsca_dla_pasazerow <= miejsce or miejsce < 0) {
+        cout << "Wybrano nieprawidłowe miejsce" << endl;
+        return 0;
+    }
     pasazerowie[miejsce].out_pasazer();
 }
 
@@ -219,8 +223,30 @@ int samochod::out_all_pasazer() {
     for (int i = 0; i < miejsca_dla_pasazerow; i++) {
         cout << "VVVVV MIEJSCE NR " << i << "VVVVV" << endl;
         pasazerowie[i].out_pasazer();
-
     }
+}
+
+int samochod::usun_pasazer(int miejsce) {
+    if (miejsca_dla_pasazerow == 0) {
+        cout << "Najpierw wprowadź informacje o miejscach dla pasażerów" << endl;
+        return 0;
+    }
+    if (miejsca_dla_pasazerow <= miejsce or miejsce < 0) {
+        cout << "Wybrano nieprawidłowe miejsce" << endl;
+        return 0;
+    }
+    pasazerowie[miejsce].usun_pasazer();
+}
+
+int samochod::usun_all_pasazer() {
+    if (miejsca_dla_pasazerow == 0) {
+        cout << "Najpierw wprowadź informacje o miejscach dla pasażerów" << endl;
+        return 0;
+    }
+    for (int i = 0; i < miejsca_dla_pasazerow; i++) {
+        pasazerowie[i].usun_pasazer();
+    }
+
 }
 
 int samochod::open_bagaznik() {
@@ -287,7 +313,7 @@ int samochod::przejedz(double kilometry) {
     if (kierowca_1->czy_prawo_jazdy()) {
         double spalone_paliwo;
         spalone_paliwo = bak_1.spal(kilometry * (spalanie_na_100km / 100));
-        cout << "Udało się przejechać " << spalone_paliwo / (100 * spalanie_na_100km) << " km" << endl;
+        cout << "Udało się przejechać " << (spalone_paliwo / spalanie_na_100km) * 100 << " km" << endl;
     } else {
         cout << "Nie można wyruszyć bo:" << endl;
         cout << "Kierowca nie ma prawa jazdy" << endl;

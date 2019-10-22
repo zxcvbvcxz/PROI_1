@@ -27,38 +27,40 @@ private:
 
 
 public:
-    samochod();
-    ~samochod();
-    samochod(const samochod & sam1);
-    samochod &operator=(const samochod & sam1);
-    int in_info();
-    int out_info();
+    samochod(); //konstruktor
+    ~samochod(); //destruktor
+    samochod(const samochod & sam1); //konstruktor kopiujący
+    samochod &operator=(const samochod & sam1); //operator przypisania
+    int in_info(); //wpisuje podstawowe dane o samochodzie
+    int out_info(); //wypisuje podstawowe dane o samochodzie
 
-    int in_kierowca();
-    int out_kierowca();
-    int usun_kierowca();
-    bool out_prawo_jazdy();
+    int in_kierowca(); //wprowadza kierowcę do auta
+    int out_kierowca(); //wypisuje informacje o kierowcy
+    int usun_kierowca(); //usuwa kierowcę z auta
+    bool out_prawo_jazdy(); //zwraca true jeśli kierowca ma prawo jazdy
 
-    int in_pasazer(int miejsce);
-    int out_pasazer(int miejsce);
-    int out_all_pasazer();
+    int in_pasazer(int miejsce); //wprowadza pasażera na dane miejsce
+    int out_pasazer(int miejsce); //wypisuje dane pasażera z danego miejsca
+    int out_all_pasazer(); //wypisuje dane wszystkich pasażerów z auta
+    int usun_pasazer(int miejsce); //usuwa pasażera z danego miejsca
+    int usun_all_pasazer();//usuwa wszystkich pasażerów z auta
 
-    int open_bagaznik();
-    int close_bagaznik();
-    int zaladuj_bagaznik();
-    int rozladuj_bagaznik();
+    int open_bagaznik(); //otwiera bagażnik
+    int close_bagaznik(); //zamyka bagażnik
+    int zaladuj_bagaznik(); //ładuje bagażnik
+    int rozladuj_bagaznik(); //rozładowuje bagżnik
 
-    int in_bak();
-    int out_bak();
+    int in_bak(); //wpisuje ilość paliwa
+    int out_bak(); //zwraca i wypisuje ilość paliwa w baku
 
-    int on_silnik();
-    int off_silnik();
+    int on_silnik(); //włącza silnik
+    int off_silnik(); //wyłącza silnik
 
-    int przejedz(double kilometry);
+    int przejedz(double kilometry); //przejeżdża daną liczbę kilometrów
 
-    bool operator++();
-    bool operator--();
-    friend ostream & operator<<(ostream & os, samochod &samochod1);
+    bool operator++(); //włącza silnik
+    bool operator--(); //wyłącza silnik
+    friend ostream & operator<<(ostream & os, samochod &samochod1); //wypisuje podstawowe informacje
 };
 
 

@@ -8,3 +8,28 @@
 #include "samochod.h"
 #include "kierowca.h"
 #include<iostream>
+
+int demo_taxi() {
+    samochod taxi;
+    taxi.in_info();
+    taxi.in_kierowca();
+    taxi.in_pasazer(0);
+    taxi.in_pasazer(1);
+    taxi.open_bagaznik();
+    taxi.zaladuj_bagaznik();
+    taxi.close_bagaznik();
+    ++taxi;
+    taxi.przejedz(30);
+    --taxi;
+    taxi.in_bak();
+    ++taxi;
+    taxi.przejedz(50);
+    --taxi;
+    taxi.usun_all_pasazer();
+    taxi.open_bagaznik();
+    taxi.rozladuj_bagaznik();
+    taxi.close_bagaznik();
+    taxi.out_all_pasazer();
+    taxi.usun_kierowca();
+    return 0;
+}
