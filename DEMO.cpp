@@ -18,6 +18,8 @@ int demo_taxi() {
     taxi.open_bagaznik();
     taxi.zaladuj_bagaznik();
     taxi.close_bagaznik();
+    taxi.out_kierowca();
+    taxi.out_all_pasazer();
     ++taxi;
     taxi.przejedz(30);
     --taxi;
