@@ -14,8 +14,10 @@
 #ifndef DEMO_H
 #define DEMO_H
 
-int demo_taxi(); //Przeprowadza symualcaję taksówki. Taksówka zabiera 2 pasażerów i ich bagaże
-//i przejeżdża pewien dystans po czym pasażerowie wysiadają i ich bagaż jest rozłdowany
+int demo_taxi(); //Przeprowadza symulację taksówki.
+//Taksówka zabiera 2 pasażerów i ich bagaże, przejeżdża pewien dystans po czym
+//taksówka się zatrzymuję by zatankować, po czym rusza dalej w podróż, następnie
+//pasażerowie wysiadają i ich bagaż jest rozładowywany
 
 #endif /* DEMO_H */
 
