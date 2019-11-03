@@ -9,6 +9,7 @@
       <itemPath>Funkcje_pomocnicze.h</itemPath>
       <itemPath>bagaznik.h</itemPath>
       <itemPath>bak.h</itemPath>
+      <itemPath>czolg.h</itemPath>
       <itemPath>kierowca.h</itemPath>
       <itemPath>pasazer.h</itemPath>
       <itemPath>pojazd_silnikowy.h</itemPath>
@@ -28,6 +29,7 @@
       <itemPath>Funkcje_pomocnicze.cpp</itemPath>
       <itemPath>bagaznik.cpp</itemPath>
       <itemPath>bak.cpp</itemPath>
+      <itemPath>czolg.cpp</itemPath>
       <itemPath>kierowca.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
       <itemPath>pasazer.cpp</itemPath>
@@ -80,6 +82,10 @@
       <item path="bak.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="bak.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="czolg.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="czolg.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="kierowca.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -148,6 +154,10 @@
       <item path="bak.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="bak.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="czolg.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="czolg.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="kierowca.cpp" ex="false" tool="1" flavor2="0">
       </item>

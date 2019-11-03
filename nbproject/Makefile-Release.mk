@@ -40,6 +40,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Funkcje_pomocnicze.o \
 	${OBJECTDIR}/bagaznik.o \
 	${OBJECTDIR}/bak.o \
+	${OBJECTDIR}/czolg.o \
 	${OBJECTDIR}/kierowca.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/pasazer.o \
@@ -97,6 +98,11 @@ ${OBJECTDIR}/bak.o: bak.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/bak.o bak.cpp
+
+${OBJECTDIR}/czolg.o: czolg.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/czolg.o czolg.cpp
 
 ${OBJECTDIR}/kierowca.o: kierowca.cpp
 	${MKDIR} -p ${OBJECTDIR}

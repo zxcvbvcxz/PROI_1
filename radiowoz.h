@@ -37,7 +37,7 @@ public:
     int zatrzymaj(int miejsce);
     int zwolnij();
     int out_zatrzymani(int miejsce);
-    int out_all_zatrzymani;
+    int out_all_zatrzymani();
 
 
 };
