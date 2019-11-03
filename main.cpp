@@ -20,7 +20,6 @@ using namespace std;
 int main(int argc, char** argv) {
     
     
-    pojazd_silnikowy lol;
     samochod kok;
     kok.out_info();
     

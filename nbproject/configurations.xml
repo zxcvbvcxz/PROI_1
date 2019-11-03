@@ -12,6 +12,7 @@
       <itemPath>kierowca.h</itemPath>
       <itemPath>pasazer.h</itemPath>
       <itemPath>pojazd_silnikowy.h</itemPath>
+      <itemPath>radiowoz.h</itemPath>
       <itemPath>samochod.h</itemPath>
       <itemPath>silnik.h</itemPath>
     </logicalFolder>
@@ -31,6 +32,7 @@
       <itemPath>main.cpp</itemPath>
       <itemPath>pasazer.cpp</itemPath>
       <itemPath>pojazd_silnikowy.cpp</itemPath>
+      <itemPath>radiowoz.cpp</itemPath>
       <itemPath>samochod.cpp</itemPath>
       <itemPath>silnik.cpp</itemPath>
     </logicalFolder>
@@ -92,6 +94,10 @@
       <item path="pojazd_silnikowy.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="pojazd_silnikowy.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="radiowoz.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="radiowoz.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="samochod.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -156,6 +162,10 @@
       <item path="pojazd_silnikowy.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="pojazd_silnikowy.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="radiowoz.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="radiowoz.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="samochod.cpp" ex="false" tool="1" flavor2="0">
       </item>
