@@ -18,16 +18,14 @@
 using namespace std;
 
 int main(int argc, char** argv) {
+    
+    
+    pojazd_silnikowy lol;
+    samochod kok;
+    kok.out_info();
+    
 
-#ifdef DEBUG
-    wybor_testu();
-#endif
-
-#ifdef DEMO
-    demo_taxi();
-#endif
-
-    cout << "Koniec main" << endl;
+    cout << "Koniec main" << endl;   
     return 0;
 }
 

@@ -43,6 +43,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/kierowca.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/pasazer.o \
+	${OBJECTDIR}/pojazd_silnikowy.o \
 	${OBJECTDIR}/samochod.o \
 	${OBJECTDIR}/silnik.o
 
@@ -110,6 +111,11 @@ ${OBJECTDIR}/pasazer.o: pasazer.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/pasazer.o pasazer.cpp
+
+${OBJECTDIR}/pojazd_silnikowy.o: pojazd_silnikowy.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/pojazd_silnikowy.o pojazd_silnikowy.cpp
 
 ${OBJECTDIR}/samochod.o: samochod.cpp
 	${MKDIR} -p ${OBJECTDIR}
