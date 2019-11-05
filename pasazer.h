@@ -32,6 +32,7 @@ public:
     int in_pasazer(); //wprowadza dane do klasy
     int out_pasazer(); //wypisuje dane z klasy
     int usun_pasazer();//usuwa pasazera 
+    bool czy_obecny(); //zwraca true jeśli pasażer jest obecny
     bool operator++(); //zwiększa wiek pasażera
     bool operator--(); //zmniejsza wiek pasażera
     bool operator<=(pasazer pas1); //porównuje wieki pasażerów

@@ -66,6 +66,10 @@ int pasazer::usun_pasazer(){
     wiek=0;
 }
 
+bool pasazer::czy_obecny(){
+    return obecny;
+}
+
 bool pasazer::operator++() {
     this->wiek++;
 }

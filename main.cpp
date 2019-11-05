@@ -9,6 +9,8 @@
 #include "silnik.h"
 #include "DEBUG.h"
 #include "DEMO.h"
+#include "czolg.h"
+#include "radiowoz.h"
 
 
 
@@ -20,8 +22,8 @@ using namespace std;
 int main(int argc, char** argv) {
     
     
-    samochod kok;
-    kok.out_info();
+    czolg tiger;
+    tiger.strzelaj();
     
 
     cout << "Koniec main" << endl;   
