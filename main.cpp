@@ -22,8 +22,8 @@ using namespace std;
 int main(int argc, char** argv) {
     
     
-    czolg tiger;
-    tiger.strzelaj();
+    samochod lol;
+    lol.in_pasazer(0);
     
 
     cout << "Koniec main" << endl;   

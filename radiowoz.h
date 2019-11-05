@@ -16,7 +16,7 @@
 
 #include "samochod.h"
 
-class radiowoz : samochod
+class radiowoz : public samochod
 {
 private:
     bool syg_swietlna;

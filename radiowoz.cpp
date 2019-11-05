@@ -84,7 +84,7 @@ int radiowoz::zatrzymaj(int miejsce) {
 
 int radiowoz::zwolnij(int miejsce) {
     if (miejsce == 0 or miejsce == 1 or miejsce == 2) {
-        zatrzymani[miejsce].in_pasazer();
+        zatrzymani[miejsce].usun_pasazer();
     } else {
         cout << "Podano niewłaściwy numer miejsca dla zatrzymanego" << endl;
     }
