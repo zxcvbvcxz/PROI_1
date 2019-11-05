@@ -15,28 +15,27 @@
 #define CZOLG_H
 #include"pojazd_silnikowy.h"
 
-class czolg : pojazd_silnikowy
-{
-private:    
-    int amunicja;
-    bool zaladowany;
+class czolg : pojazd_silnikowy {
+private:
+    int amunicja = 20;
+    bool zaladowany = false;
     pasazer zaloga[5];
-    int min_zaloga;
-    int max_zaloga;
+    int min_zaloga = 0;
+    int max_zaloga = 5;
 public:
     czolg();
     czolg(const czolg& orig);
     virtual ~czolg();
 
-    int dodaj_amunicje();
+    int dodaj_amunicje(int ilosc);
     int laduj();
     int strzelaj();
-    
+
     int dodaj_zaloge(int miejsce);
     int zwolnij_zaloge();
     int out_zaloga(int miejsce);
     int out_all_zaloga();
-    
+
 };
 
 #endif /* CZOŁG_H */

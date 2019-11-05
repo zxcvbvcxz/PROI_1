@@ -35,7 +35,7 @@ public:
     int off_swiatlo();
     
     int zatrzymaj(int miejsce);
-    int zwolnij();
+    int zwolnij(int miejsce);
     int out_zatrzymani(int miejsce);
     int out_all_zatrzymani();
 

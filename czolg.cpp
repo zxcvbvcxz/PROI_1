@@ -22,3 +22,26 @@ czolg::czolg(const czolg& orig) {
 czolg::~czolg() {
 }
 
+int czolg::dodaj_amunicje(int ilosc) {
+    amunicja += ilosc;
+
+}
+
+int czolg::laduj() {
+    if (zaladowany) {
+        cout << "działo jest juz załadowane" << endl;
+    } else if (amunicja > 0) {
+        amunicja--;
+        zaladowany = true;
+        cout << "działo zostało załadowane" << endl;
+    }else {
+        cout << "nie można załadować działa, nie ma amunicji" << endl;
+    }
+}
+
+int czolg::strzelaj() {
+    if (zaladowany){
+        zaladowany= false;
+        cout <<"Działo wystrzeliło" << endl;
+    }
+    }

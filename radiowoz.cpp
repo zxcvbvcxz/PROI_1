@@ -73,14 +73,36 @@ int radiowoz::off_swiatlo() {
     return 0;
 }
 
-
-
-int radiowoz::zatrzymaj(int miejsce){
-    if(miejsce == 0 or miejsce == 1 or miejsce == 2){
+int radiowoz::zatrzymaj(int miejsce) {
+    if (miejsce == 0 or miejsce == 1 or miejsce == 2) {
         zatrzymani[miejsce].in_pasazer();
-    } else{
-     cout << "Podano niewłaściwy numer miejsca dla zatrzymanego" << endl;   
+    } else {
+        cout << "Podano niewłaściwy numer miejsca dla zatrzymanego" << endl;
     }
     return 0;
 }
 
+int radiowoz::zwolnij(int miejsce) {
+    if (miejsce == 0 or miejsce == 1 or miejsce == 2) {
+        zatrzymani[miejsce].in_pasazer();
+    } else {
+        cout << "Podano niewłaściwy numer miejsca dla zatrzymanego" << endl;
+    }
+    return 0;
+}
+
+int radiowoz::out_zatrzymani(int miejsce){
+    if (miejsce == 0 or miejsce == 1 or miejsce == 2) {
+        zatrzymani[miejsce].out_pasazer();
+    } else {
+        cout << "Podano niewłaściwy numer miejsca dla zatrzymanego" << endl;
+    }
+    return 0;
+}
+
+int radiowoz::out_all_zatrzymani(){
+    for(int i=0;i<3;i++){
+        zatrzymani[i].out_pasazer();
+    }
+    return 0;
+}
