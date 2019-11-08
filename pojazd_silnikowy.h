@@ -29,7 +29,7 @@ public:
     virtual ~pojazd_silnikowy(); //destruktor
     pojazd_silnikowy(const pojazd_silnikowy& orig); //konstruktor kopiujący
     virtual pojazd_silnikowy &operator=(const pojazd_silnikowy & sam1); //operator przypisania
-    
+
     virtual int in_info() = 0; //wpisuje podstawowe dane 
     virtual int out_info() = 0; //wypisuje podstawowe dane 
 
@@ -37,7 +37,7 @@ public:
     int out_kierowca(); //wypisuje informacje o kierowcy
     int usun_kierowca(); //usuwa kierowcę z pojazdu
     bool out_prawo_jazdy(); //zwraca true jeśli kierowca ma prawo jazdy
-    
+
     int in_bak(); //wpisuje ilość paliwa
     int out_bak(); //zwraca i wypisuje ilość paliwa w baku
 
@@ -49,6 +49,7 @@ public:
     bool operator++(); //włącza silnik
     bool operator--(); //wyłącza silnik
     friend ostream & operator<<(ostream & os, pojazd_silnikowy &pojazd1); //wypisuje podstawowe informacje
+    friend istream & operator<<(istream & is, pojazd_silnikowy &pojazd1);
 
 };
 

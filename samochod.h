@@ -43,6 +43,7 @@ public:
     int przejedz(double kilometry); //przejeżdża daną liczbę kilometrów
     
     friend ostream & operator<<(ostream & os, samochod &samochod1); //wypisuje podstawowe informacje
+    friend istream & operator>>(istream & is, samochod &samochod1);
 };
 
 

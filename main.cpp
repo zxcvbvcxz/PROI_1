@@ -29,9 +29,14 @@ int main(int argc, char** argv) {
     lista[0] = &tiger;
     lista[1] = &reanult;
     lista[2] = &pol;
+
+//    for (int i = 0; i < 3; i++) {
+//        cin >> *lista[i];
+//    }
+    cin >> tiger;
     
-    for(int i=0;i<3;i++){
-        lista[i]->out_info();
+    for (int i = 0; i < 3; i++) {
+        cout << *lista[i];
         cout << endl;
     }
 

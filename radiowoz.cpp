@@ -1,15 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/* 
- * File:   radiowoz.cpp
- * Author: Bogusław Malewski
- * 
- * Created on 3 listopada 2019, 17:13
- */
 
 #include "radiowoz.h"
 #include "pasazer.h"
@@ -141,4 +130,14 @@ int radiowoz::out_all_zatrzymani() {
         zatrzymani[i].out_pasazer_radiowoz();
     }
     return 0;
+}
+
+ostream & operator<<(ostream & os, radiowoz &radiowoz1) {
+    radiowoz1.out_info();
+    return os;
+}
+
+istream & operator>>(istream & is, radiowoz &radiowoz1) {
+    radiowoz1.in_info();
+    return is;
 }

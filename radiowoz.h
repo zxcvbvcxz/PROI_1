@@ -1,15 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/* 
- * File:   radiowoz.h
- * Author: Bogusław Malewski
- *
- * Created on 3 listopada 2019, 17:13
- */
 
 #ifndef RADIOWOZ_H
 #define RADIOWOZ_H
@@ -42,7 +31,8 @@ public:
     int out_zatrzymani(int miejsce); //Wypisuje dane zatrzymanej osoby
     int out_all_zatrzymani(); //Wypisuje dane wszystkich zatrzymanych osob
 
-
+    friend ostream & operator<<(ostream & os, radiowoz &radiowoz1);
+    friend istream & operator>>(istream & is, radiowoz &radiowoz1);
 };
 
 #endif /* RADIOWOZ_H */

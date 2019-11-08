@@ -181,3 +181,8 @@ ostream & operator<<(ostream & os, samochod &samochod1) {
     samochod1.out_info();
     return os;
 }
+
+istream & operator>>(istream & is, samochod &samochod1) {
+    samochod1.in_info();
+    return is;
+}

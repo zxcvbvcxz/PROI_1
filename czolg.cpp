@@ -1,15 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/* 
- * File:   czołg.cpp
- * Author: Bogusław Malewski
- * 
- * Created on 3 listopada 2019, 17:36
- */
 
 #include "czolg.h"
 #include"Funkcje_pomocnicze.h"
@@ -34,9 +23,8 @@ int czolg::in_info() {
             cout << "podaj liczbę z zakresu od 0 do 100" << endl;
             continue;
         }
-        break;
-
         amunicja = (int) temp_double;
+        break;
     }
     return 0;
 }
@@ -151,4 +139,14 @@ int czolg::out_all_zaloga() {
         cout << "VVVVV MIEJSCE NR " << i << "VVVVV" << endl;
         zaloga[i].out_pasazer_czolg();
     }
+}
+
+ostream & operator<<(ostream & os, czolg &czolg1) {
+    czolg1.out_info();
+    return os;
+}
+
+istream & operator>>(istream & is, czolg &czolg1) {
+    czolg1.in_info();
+    return is;
 }

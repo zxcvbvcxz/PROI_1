@@ -1,15 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/* 
- * File:   czołg.h
- * Author: Bogusław Malewski
- *
- * Created on 3 listopada 2019, 17:36
- */
 
 #ifndef CZOLG_H
 #define CZOLG_H
@@ -39,6 +28,8 @@ public:
     int out_zaloga(int miejsce);//Wypisuje dane członka załogi z danego miejsca
     int out_all_zaloga();//Wypisuje dane wszystkich członków załogi
 
+    friend ostream & operator<<(ostream & os, czolg &czolg1);
+    friend istream & operator>>(istream & is, czolg &czolg1);
 };
 
 #endif /* CZOŁG_H */
