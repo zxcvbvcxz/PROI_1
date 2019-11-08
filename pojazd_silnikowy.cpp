@@ -174,7 +174,7 @@ int pojazd_silnikowy::out_bak() {
 }
 
 int pojazd_silnikowy::on_silnik() {
-    if (bak_1.info_bak() > 0) {
+    if (bak_1.info_bak_v() > 0) {
         silnik_1.wlacz();
     } else {
         cout << "Bak jest pusty" << endl << "Musisz dolać paliwa" << endl;

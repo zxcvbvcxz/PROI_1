@@ -91,6 +91,31 @@ int pasazer::out_pasazer_czolg(){
     cout << "--------------------------------------" << endl;
     return 0;
 }
+int pasazer::out_pasazer_radiowoz(){
+    if (obecny == false) {
+        cout << "Nie ma zatrzymanego na danym miejscu" << endl;
+        return 0;
+    }
+    cout << "--------------------------------------" << endl;
+
+    if (imie.empty()) {
+        cout << "Pole imię jest puste" << endl;
+    } else
+        cout << "Imię zatrzymanego:" << imie << endl;
+
+    if (nazwisko.empty()) {
+        cout << "Pole nazwisko jest puste" << endl;
+    } else
+        cout << "Nazwisko zatrzymanego:" << nazwisko << endl;
+
+    if (wiek == 0) {
+        cout << "Pole wiek jest puste" << endl;
+    } else
+        cout << "Wiek zatrzymanego:" << wiek << endl;
+
+    cout << "--------------------------------------" << endl;
+    return 0;
+}
 
 int pasazer::usun_pasazer() {
     obecny = false;

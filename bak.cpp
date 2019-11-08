@@ -41,6 +41,9 @@ double bak::spal(double litry) {
 
 double bak::info_bak() {
     cout << "W baku jest " << stan_bak << "L paliwa" << endl;
+    return 0;
+}
+double bak::info_bak_v(){
     return stan_bak;
 }
 

@@ -22,7 +22,8 @@ public:
 
     int zatankuj(double litry);//wlewa do baku paliwo
     double spal(double litry);//spala paliwo z baku
-    double info_bak();//wypisuje i zwraca ile jest litrów paliwa w baku
+    double info_bak();//wypisuje ile jest litrów paliwa w baku
+    double info_bak_v();//zwraca ile jest litrów paliwa w baku
     bool operator++();//dodaje litr paliwa do baku
     bool operator--();//usuwa litr paliwa z baku
     bool operator<=(bak bak1);//porównuje ilość paliwa w bakach

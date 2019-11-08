@@ -12,6 +12,7 @@
  */
 
 #include "czolg.h"
+#include"Funkcje_pomocnicze.h"
 
 czolg::czolg() {
 }
@@ -23,10 +24,33 @@ czolg::~czolg() {
 }
 
 int czolg::in_info() {
+    pojazd_silnikowy::in_info();
+    while (1) {
+        cout << "Podaj ile sztuk amunicji ma czołg" << endl;
+        double temp_double;
+        wczytaj_double(temp_double);
+        if (temp_double < 0 or temp_double > 100) {
+            cout << "Podano nieprawidłową liczbę" << endl;
+            cout << "podaj liczbę z zakresu od 0 do 100" << endl;
+            continue;
+        }
+        break;
+
+        amunicja = (int) temp_double;
+    }
     return 0;
 }
 
 int czolg::out_info() {
+    cout << "++++++++++++++++++++++++++++++++++++++" << endl;
+    pojazd_silnikowy::out_info();
+    cout << "W czołgu jest " << amunicja << " sztuk amunicji" << endl;
+    if (zaladowany) {
+        cout << "Armata czołgu jest załadowana" << endl;
+    } else {
+        cout << "Armata czołgu nie jest załadowana" << endl;
+    }
+    cout << "++++++++++++++++++++++++++++++++++++++" << endl;
     return 0;
 }
 

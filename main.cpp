@@ -20,20 +20,22 @@
 using namespace std;
 
 int main(int argc, char** argv) {
-    
 
+    pojazd_silnikowy * lista[3];
     czolg tiger;
-    tiger.strzelaj();
-    tiger.out_kierowca();
-    tiger.in_kierowca();
-    tiger.dodaj_zaloge(0,"Jan","Kowalski",24);
-    tiger.out_all_zaloga();
+    samochod reanult;
+    radiowoz pol;
+
+    lista[0] = &tiger;
+    lista[1] = &reanult;
+    lista[2] = &pol;
     
-    tiger.dodaj_zaloge(1,"Marian","Kot",24);
-    tiger.out_all_zaloga();
-    tiger.laduj();
-    tiger.strzelaj();
-    cout << "Koniec main" << endl;   
+    for(int i=0;i<3;i++){
+        lista[i]->out_info();
+        cout << endl;
+    }
+
+    cout << "Koniec main" << endl;
     return 0;
 }
 

@@ -83,15 +83,11 @@ int samochod::in_info() {
 
 int samochod::out_info() {
     cout << "++++++++++++++++++++++++++++++++++++++" << endl;
-
     pojazd_silnikowy::out_info();
     if (miejsca_dla_pasazerow == 0) {
         cout << "Pole miejsca dla pasazerow jest puste" << endl;
     } else
         cout << "Miejsca dla pasazerow:" << miejsca_dla_pasazerow << endl;
-
-
-
     cout << "++++++++++++++++++++++++++++++++++++++" << endl;
     return 0;
 };

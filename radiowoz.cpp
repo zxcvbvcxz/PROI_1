@@ -14,6 +14,7 @@
 #include "radiowoz.h"
 #include "pasazer.h"
 #include <iostream>
+#include"Funkcje_pomocnicze.h"
 
 using namespace std;
 
@@ -32,6 +33,40 @@ radiowoz::radiowoz(const radiowoz& orig) {
 
 radiowoz::~radiowoz() {
 }
+
+int radiowoz::in_info() {
+    samochod::in_info();
+    double temp_double;
+    cout << "Czy radiowóz ma włączoną syganlizację świetlną?" << endl;
+    cout << " Wpisz 1 jeśli tak, wpisz 0 jeśli nie." << endl;
+    wczytaj_double(temp_double);
+    syg_swietlna = (bool)temp_double;
+
+    cout << "Czy radiowóz ma włączoną syganlizację dźwiękową?" << endl;
+    cout << " Wpisz 1 jeśli tak, wpisz 0 jeśli nie." << endl;
+    wczytaj_double(temp_double);
+    syg_dzwiekowa = (bool)temp_double;
+    return 0;
+}
+
+int radiowoz::out_info() {
+    cout << "######################################" << endl;
+
+    samochod::out_info();
+    if (syg_swietlna) {
+        cout << "Sygnalizacja świetlna jest włączona" << endl;
+    } else {
+        cout << "Sygnalizacja świetlna jest wyłączona" << endl;
+    }
+    if (syg_dzwiekowa) {
+        cout << "Sygnalizacja dźwiękowa jest włączona" << endl;
+    } else {
+        cout << "Sygnalizacja dźwiękowa jest wyłączona" << endl;
+    }
+    out_all_zatrzymani();
+    cout << "######################################" << endl;
+    return 0;
+};
 
 int radiowoz::on_dzwiek() {
     if (syg_dzwiekowa == false) {
@@ -73,9 +108,9 @@ int radiowoz::off_swiatlo() {
     return 0;
 }
 
-int radiowoz::zatrzymaj(int miejsce) {
+int radiowoz::zatrzymaj(int miejsce, string imie, string nazwisko, int wiek) {
     if (miejsce == 0 or miejsce == 1 or miejsce == 2) {
-        zatrzymani[miejsce].in_pasazer();
+        zatrzymani[miejsce].in_pasazer(imie, nazwisko, wiek);
     } else {
         cout << "Podano niewłaściwy numer miejsca dla zatrzymanego" << endl;
     }
@@ -93,7 +128,7 @@ int radiowoz::zwolnij(int miejsce) {
 
 int radiowoz::out_zatrzymani(int miejsce) {
     if (miejsce == 0 or miejsce == 1 or miejsce == 2) {
-        zatrzymani[miejsce].out_pasazer();
+        zatrzymani[miejsce].out_pasazer_radiowoz();
     } else {
         cout << "Podano niewłaściwy numer miejsca dla zatrzymanego" << endl;
     }
@@ -102,7 +137,8 @@ int radiowoz::out_zatrzymani(int miejsce) {
 
 int radiowoz::out_all_zatrzymani() {
     for (int i = 0; i < 3; i++) {
-        zatrzymani[i].out_pasazer();
+        cout << "VVVVV MIEJSCE NR " << i << "VVVVV" << endl;
+        zatrzymani[i].out_pasazer_radiowoz();
     }
     return 0;
 }
