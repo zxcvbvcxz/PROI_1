@@ -18,7 +18,7 @@
 class czolg : public pojazd_silnikowy
 {
 private:
-    enum {min_zaloga = 3};
+    enum {min_zaloga = 2};
     int amunicja = 20;
     bool zaladowany = false;
     pasazer zaloga[4];    
@@ -27,17 +27,17 @@ public:
     czolg(const czolg& orig);
     virtual ~czolg();
 
-    int in_info(); //wpisuje podstawowe dane 
-    int out_info(); //wypisuje podstawowe dane 
+    int in_info(); //Wpisuje podstawowe dane 
+    int out_info(); //Wypisuje podstawowe dane 
 
-    int dodaj_amunicje(int ilosc);
-    int laduj();
-    int strzelaj();
+    int dodaj_amunicje(int ilosc);//Dodaje wpisaną ilość amunicji
+    int laduj();//Ładuje armatę czołgu
+    int strzelaj();//Strzela z armaty używając załadowanej amunicji
 
-    int dodaj_zaloge(int miejsce);
-    int zwolnij_zaloge(int miejsce);
-    int out_zaloga(int miejsce);
-    int out_all_zaloga();
+    int dodaj_zaloge(int miejsce, string imie, string nazwisko, int wiek);//Dodaje członka załogi
+    int zwolnij_zaloge(int miejsce);//Zwalnia członka załogi
+    int out_zaloga(int miejsce);//Wypisuje dane członka załogi z danego miejsca
+    int out_all_zaloga();//Wypisuje dane wszystkich członków załogi
 
 };
 

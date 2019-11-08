@@ -27,17 +27,17 @@ public:
     radiowoz();
     radiowoz(const radiowoz& orig);
     virtual ~radiowoz();
-    
-    int on_dzwiek();
-    int off_dzwiek();
-    
-    int on_swiatlo();
-    int off_swiatlo();
-    
-    int zatrzymaj(int miejsce);
-    int zwolnij(int miejsce);
-    int out_zatrzymani(int miejsce);
-    int out_all_zatrzymani();
+
+    int on_dzwiek(); //Włącza syganlizację świetlną
+    int off_dzwiek(); //Wyłącza syganlizację świetlną
+
+    int on_swiatlo(); //Włącza syganlizację dźwiękową
+    int off_swiatlo(); //Wyłącza syganlizację dźwiękową
+
+    int zatrzymaj(int miejsce); //Wprowadza do radiowozu zatrzymaną osobę
+    int zwolnij(int miejsce); //Wyprowadza z radiowozu zatrzymaną osobę
+    int out_zatrzymani(int miejsce); //Wypisuje dane zatrzymanej osoby
+    int out_all_zatrzymani(); //Wypisuje dane wszystkich zatrzymanych osob
 
 
 };

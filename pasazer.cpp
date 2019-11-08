@@ -33,6 +33,13 @@ int pasazer::in_pasazer() {
 
 }
 
+int pasazer::in_pasazer(string imie_, string nazwisko_, int wiek_) {
+    obecny = true;
+    imie = imie_;
+    nazwisko = nazwisko_;
+    wiek = wiek_;
+}
+
 int pasazer::out_pasazer() {
     if (obecny == false) {
         cout << "Nie ma pasażera na danym miejscu" << endl;
@@ -59,14 +66,40 @@ int pasazer::out_pasazer() {
     return 0;
 }
 
-int pasazer::usun_pasazer(){
-    obecny=false;
-    imie.clear();
-    nazwisko.clear();
-    wiek=0;
+int pasazer::out_pasazer_czolg(){
+    if (obecny == false) {
+        cout << "Nie ma członka załogi na danym miejscu" << endl;
+        return 0;
+    }
+    cout << "--------------------------------------" << endl;
+
+    if (imie.empty()) {
+        cout << "Pole imię jest puste" << endl;
+    } else
+        cout << "Imię członka załogi:" << imie << endl;
+
+    if (nazwisko.empty()) {
+        cout << "Pole nazwisko jest puste" << endl;
+    } else
+        cout << "Nazwisko członka załogi:" << nazwisko << endl;
+
+    if (wiek == 0) {
+        cout << "Pole wiek jest puste" << endl;
+    } else
+        cout << "Wiek członka załogi:" << wiek << endl;
+
+    cout << "--------------------------------------" << endl;
+    return 0;
 }
 
-bool pasazer::czy_obecny(){
+int pasazer::usun_pasazer() {
+    obecny = false;
+    imie.clear();
+    nazwisko.clear();
+    wiek = 0;
+}
+
+bool pasazer::czy_obecny() {
     return obecny;
 }
 
@@ -125,7 +158,7 @@ ostream & operator<<(ostream & os, const pasazer &pas1) {
 }
 
 istream & operator>>(istream & is, pasazer &pas1) {
-if (pas1.obecny == true) {
+    if (pas1.obecny == true) {
         cout << "Miejsce jest już zajęte" << endl;
         return is;
     }

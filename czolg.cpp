@@ -31,8 +31,22 @@ int czolg::out_info() {
 }
 
 int czolg::dodaj_amunicje(int ilosc) {
+    if (amunicja == 100) {
+        cout << "Limit amunicji wynosi 100; Nie można dodać więcej amunicji" << endl;
+        return 0;
+    }
+    if (amunicja < 0) {
+        cout << "Podano niewłaściwą ilość amunicji" << endl;
+        return 0;
+    }
+
+    if (amunicja + ilosc > 100) {
+        amunicja = 100;
+        cout << "Dodano " << 100 - amunicja << " sztuk amunicji" << endl;
+        return 0;
+    }
     amunicja += ilosc;
-    cout << "Dodano " << ilosc << " amunicji" << endl;
+    cout << "Dodano " << ilosc << " sztuk amunicji" << endl;
     return 0;
 
 }
@@ -42,7 +56,7 @@ int czolg::laduj() {
         cout << "Działo jest juz załadowane" << endl;
     } else if (amunicja > 0) {
         int temp = 0;
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 3; i++) {
             if (zaloga[i].czy_obecny()) {
                 temp++;
             }
@@ -63,7 +77,7 @@ int czolg::laduj() {
 int czolg::strzelaj() {
     if (zaladowany) {
         int temp = 0;
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 3; i++) {
             if (zaloga[i].czy_obecny()) {
                 temp++;
             }
@@ -80,9 +94,9 @@ int czolg::strzelaj() {
     }
 }
 
-int czolg::dodaj_zaloge(int miejsce) {
+int czolg::dodaj_zaloge(int miejsce, string imie, string nazwisko, int wiek) {
     if (miejsce == 0 or miejsce == 1 or miejsce == 2 or miejsce == 3 or miejsce == 4) {
-        zaloga[miejsce].in_pasazer();
+        zaloga[miejsce].in_pasazer(imie, nazwisko, wiek);
     } else {
         cout << "Wybrano nieprawidłowe miejsce" << endl;
     }
@@ -100,7 +114,7 @@ int czolg::zwolnij_zaloge(int miejsce) {
 
 int czolg::out_zaloga(int miejsce) {
     if (miejsce == 0 or miejsce == 1 or miejsce == 2 or miejsce == 3 or miejsce == 4) {
-        zaloga[miejsce].out_pasazer();
+        zaloga[miejsce].out_pasazer_czolg();
     } else {
         cout << "Wybrano nieprawidłowe miejsce" << endl;
     }
@@ -111,6 +125,6 @@ int czolg::out_all_zaloga() {
     out_kierowca();
     for (int i = 0; i < 4; i++) {
         cout << "VVVVV MIEJSCE NR " << i << "VVVVV" << endl;
-        zaloga[i].out_pasazer();
+        zaloga[i].out_pasazer_czolg();
     }
 }

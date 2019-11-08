@@ -21,17 +21,18 @@ using namespace std;
 
 int main(int argc, char** argv) {
     
-    int a =89;
-    int b =999;
-    radiowoz mark;
- //   lol.in_pasazer(0);
+
+    czolg tiger;
+    tiger.strzelaj();
+    tiger.out_kierowca();
+    tiger.in_kierowca();
+    tiger.dodaj_zaloge(0,"Jan","Kowalski",24);
+    tiger.out_all_zaloga();
     
-    int c =999232323;
-    int d =99923;
-    mark.close_bagaznik();
-    mark.out_info();
-//    mark.in_info();
-//    mark.on_silnik();
+    tiger.dodaj_zaloge(1,"Marian","Kot",24);
+    tiger.out_all_zaloga();
+    tiger.laduj();
+    tiger.strzelaj();
     cout << "Koniec main" << endl;   
     return 0;
 }

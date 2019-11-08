@@ -17,12 +17,12 @@
 
 using namespace std;
 
-radiowoz::radiowoz() : samochod(1)  {
+radiowoz::radiowoz() : samochod(1) {
     syg_swietlna = false;
     syg_dzwiekowa = false;
 }
 
-radiowoz::radiowoz(const radiowoz& orig){
+radiowoz::radiowoz(const radiowoz& orig) {
     syg_swietlna = orig.syg_swietlna;
     syg_dzwiekowa = orig.syg_dzwiekowa;
     zatrzymani[0] = orig.zatrzymani[0];
