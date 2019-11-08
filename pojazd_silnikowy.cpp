@@ -210,3 +210,7 @@ ostream & operator<<(ostream & os, pojazd_silnikowy &pojazd_silnikowy1) {
     pojazd_silnikowy1.out_info();
     return os;
 }
+istream & operator>>(istream & is, pojazd_silnikowy &pojazd_silnikowy1) {
+    pojazd_silnikowy1.in_info();
+    return is;
+}

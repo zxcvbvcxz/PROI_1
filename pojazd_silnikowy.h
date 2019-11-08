@@ -49,7 +49,7 @@ public:
     bool operator++(); //włącza silnik
     bool operator--(); //wyłącza silnik
     friend ostream & operator<<(ostream & os, pojazd_silnikowy &pojazd1); //wypisuje podstawowe informacje
-    friend istream & operator<<(istream & is, pojazd_silnikowy &pojazd1);
+    friend istream & operator>>(istream & is, pojazd_silnikowy &pojazd1);
 
 };
 

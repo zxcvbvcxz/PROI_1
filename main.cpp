@@ -30,10 +30,10 @@ int main(int argc, char** argv) {
     lista[1] = &reanult;
     lista[2] = &pol;
 
-//    for (int i = 0; i < 3; i++) {
-//        cin >> *lista[i];
-//    }
-    cin >> tiger;
+    for (int i = 0; i < 3; i++) {
+        cin >> *lista[i];
+    }
+  //  cin >> *lista[0];
     
     for (int i = 0; i < 3; i++) {
         cout << *lista[i];
