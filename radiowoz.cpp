@@ -17,12 +17,12 @@
 
 using namespace std;
 
-radiowoz::radiowoz() {
+radiowoz::radiowoz() : samochod(1)  {
     syg_swietlna = false;
     syg_dzwiekowa = false;
 }
 
-radiowoz::radiowoz(const radiowoz& orig) {
+radiowoz::radiowoz(const radiowoz& orig){
     syg_swietlna = orig.syg_swietlna;
     syg_dzwiekowa = orig.syg_dzwiekowa;
     zatrzymani[0] = orig.zatrzymani[0];
@@ -91,7 +91,7 @@ int radiowoz::zwolnij(int miejsce) {
     return 0;
 }
 
-int radiowoz::out_zatrzymani(int miejsce){
+int radiowoz::out_zatrzymani(int miejsce) {
     if (miejsce == 0 or miejsce == 1 or miejsce == 2) {
         zatrzymani[miejsce].out_pasazer();
     } else {
@@ -100,8 +100,8 @@ int radiowoz::out_zatrzymani(int miejsce){
     return 0;
 }
 
-int radiowoz::out_all_zatrzymani(){
-    for(int i=0;i<3;i++){
+int radiowoz::out_all_zatrzymani() {
+    for (int i = 0; i < 3; i++) {
         zatrzymani[i].out_pasazer();
     }
     return 0;

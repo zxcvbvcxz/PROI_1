@@ -8,9 +8,20 @@
 
 using namespace std;
 
-samochod::samochod() {
-    miejsca_dla_pasazerow = 0;
-    pasazerowie = nullptr;
+samochod::samochod(int miejsca) {
+    if (miejsca < 0) {
+        miejsca = 0;
+    }
+    if (miejsca > 7) {
+        miejsca = 7;
+    }
+    if (miejsca > 0) {
+        miejsca_dla_pasazerow = miejsca;
+        pasazerowie = new pasazer[miejsca];
+    } else {
+        pasazerowie = nullptr;
+    }
+
 }
 
 samochod::~samochod() {
@@ -22,7 +33,7 @@ samochod::~samochod() {
 samochod::samochod(const samochod & sam1) {
 
     miejsca_dla_pasazerow = sam1.miejsca_dla_pasazerow;
-    
+
     if (sam1.pasazerowie == nullptr) {
         pasazerowie = nullptr;
     } else {
@@ -85,9 +96,6 @@ int samochod::out_info() {
     return 0;
 };
 
-
-
-
 int samochod::in_pasazer(int miejsce) {
     if (miejsca_dla_pasazerow == 0) {
         cout << "Najpierw wprowadź informacje o miejscach dla pasażerów" << endl;
@@ -147,13 +155,13 @@ int samochod::usun_all_pasazer() {
 }
 
 int samochod::przejedz(double kilometry) {
-    
+
     if (bagaznik_1.czy_otwarty()) {
         cout << "Nie można wyruszyć bo:" << endl;
         cout << "Bagażnik jest otwarty" << endl;
         return 0;
-    }else
-        pojazd_silnikowy::przejedz(kilometry);   
+    } else
+        pojazd_silnikowy::przejedz(kilometry);
     return 0;
 }
 
@@ -172,7 +180,6 @@ int samochod::zaladuj_bagaznik() {
 int samochod::rozladuj_bagaznik() {
     bagaznik_1.rozladuj();
 }
-
 
 ostream & operator<<(ostream & os, samochod &samochod1) {
     samochod1.out_info();

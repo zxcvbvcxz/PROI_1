@@ -15,11 +15,11 @@ using namespace std;
 class samochod : public pojazd_silnikowy
 {
 private:
-    int miejsca_dla_pasazerow = 0;
+    int miejsca_dla_pasazerow;
     pasazer * pasazerowie = nullptr;
     bagaznik bagaznik_1;
 public:
-    samochod(); //konstruktor
+    samochod(int miejsca = 0); //konstruktor
     ~samochod(); //destruktor
     samochod(const samochod & sam1); //konstruktor kopiujący
     samochod &operator=(const samochod & sam1); //operator przypisania

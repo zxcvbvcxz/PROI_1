@@ -21,11 +21,17 @@ using namespace std;
 
 int main(int argc, char** argv) {
     
+    int a =89;
+    int b =999;
+    radiowoz mark;
+ //   lol.in_pasazer(0);
     
-    samochod lol;
-    lol.in_pasazer(0);
-    
-
+    int c =999232323;
+    int d =99923;
+    mark.close_bagaznik();
+    mark.out_info();
+//    mark.in_info();
+//    mark.on_silnik();
     cout << "Koniec main" << endl;   
     return 0;
 }
