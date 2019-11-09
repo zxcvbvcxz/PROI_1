@@ -25,14 +25,16 @@ int main(int argc, char** argv) {
     czolg tiger;
     czolg t34;
     samochod sam;
-    //radiowoz pol;
+    radiowoz pol;
 
     samochod sam2;
-
+//    ofstream fout("tutaj.txt");
     ifstream fin("tutaj.txt");
-    fin >> sam2;
-    cout << sam2;
-    sam2.out_all_pasazer();
+    fin >> pol;
+    pol.out_info();
+    pol.out_all_pasazer();
+    pol.out_all_zatrzymani();
+  //  sam2.out_all_pasazer();
 
 
 

@@ -57,6 +57,43 @@ int radiowoz::out_info() {
     return 0;
 };
 
+int radiowoz::fout_info(ofstream& plik) {
+    samochod::fout_info(plik);
+    plik << syg_swietlna << endl;
+    plik << syg_dzwiekowa << endl;
+    for (int i = 0; i < 3; i++) {
+        plik << zatrzymani[i].robecny() << endl;
+        plik << zatrzymani[i].rimie() << endl;
+        plik << zatrzymani[i].rnazwisko() << endl;
+        plik << zatrzymani[i].rwiek() << endl;
+    }
+}
+
+int radiowoz::fin_info(ifstream &plik){
+    samochod::fin_info(plik);
+    int temp_int;
+    string temp_string;
+    plik >> temp_int;
+    plik.ignore(1000,'\n');
+    syg_swietlna = temp_int;
+    plik >> temp_int;
+    plik.ignore(1000,'\n');
+    syg_dzwiekowa = temp_int;
+    for (int i = 0; i < 3; i++) {
+        plik >> temp_int;
+        plik.ignore(1000,'\n');
+        zatrzymani[i].wobecny(temp_int);
+        getline(plik, temp_string);
+        zatrzymani[i].wimie(temp_string);
+        getline(plik, temp_string);
+        zatrzymani[i].wnazwisko(temp_string);
+        plik >> temp_int;
+        plik.ignore(1000,'\n');
+        zatrzymani[i].wwiek(temp_int);
+    }
+    return 0;
+}
+
 int radiowoz::on_dzwiek() {
     if (syg_dzwiekowa == false) {
         syg_dzwiekowa = true;
@@ -139,5 +176,15 @@ ostream & operator<<(ostream & os, radiowoz &radiowoz1) {
 
 istream & operator>>(istream & is, radiowoz &radiowoz1) {
     radiowoz1.in_info();
+    return is;
+}
+
+ofstream & operator<<(ofstream & os, radiowoz &radiowoz1) {
+    radiowoz1.fout_info(os);
+    return os;
+}
+
+ifstream & operator>>(ifstream & is, radiowoz &radiowoz1){
+    radiowoz1.fin_info(is);
     return is;
 }

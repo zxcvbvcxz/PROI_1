@@ -1,33 +1,28 @@
-qwert
-adfsgsg
-1923
-23
-qw
-as
-12
-1
+Jan
+Kowalski
+0
+9
+nullptr
 25
 0
-5
+1
+1
+Oficer pomocniczy James
+Charles
 0
-
-
 0
 0
-
-
 0
+1
 0
 
 
 0
 1
-jan
-kot
-23
+Bandyta
+Andrzej
+22
 0
 
 
 0
-1
-1

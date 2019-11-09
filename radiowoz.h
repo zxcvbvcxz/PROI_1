@@ -19,6 +19,8 @@ public:
     
     int in_info(); //wpisuje podstawowe dane 
     int out_info(); //wypisuje podstawowe dane 
+    int fout_info(ofstream& plik);
+    int fin_info(ifstream &plik);
 
     int on_dzwiek(); //Włącza syganlizację świetlną
     int off_dzwiek(); //Wyłącza syganlizację świetlną
@@ -33,6 +35,8 @@ public:
 
     friend ostream & operator<<(ostream & os, radiowoz &radiowoz1);
     friend istream & operator>>(istream & is, radiowoz &radiowoz1);
+    friend ofstream & operator<<(ofstream & os, radiowoz &radiowoz1);
+    friend ifstream & operator>>(ifstream & is, radiowoz &radiowoz1);
 };
 
 #endif /* RADIOWOZ_H */
