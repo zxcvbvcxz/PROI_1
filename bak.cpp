@@ -48,7 +48,7 @@ double bak::info_bak_v() {
     return stan_bak;
 }
 
-int bak::set(double litry) {
+int bak::set(double &litry) {
     stan_bak = litry;
 }
 

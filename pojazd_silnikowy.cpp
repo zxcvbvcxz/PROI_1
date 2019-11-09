@@ -10,6 +10,12 @@
 #include "Funkcje_pomocnicze.h"
 #include<fstream>
 
+
+#include <iomanip>
+
+
+
+
 using namespace std;
 
 pojazd_silnikowy::pojazd_silnikowy() {
@@ -132,28 +138,29 @@ int pojazd_silnikowy::fin_info(ifstream &plik) {
     int temp_int;
     string temp_string;
     double temp_double;
-    plik >> marka;
-    plik >> model;
-    plik >> rocznik;
-    plik >> spalanie_na_100km;
+    getline(plik, marka);
+    getline(plik, model);
+    plik >> rocznik>>ws;
+    plik >> spalanie_na_100km>>ws;
 
-    plik >> temp_string;
+    getline(plik, temp_string);
     if (temp_string == "nullptr") {
         kierowca_1 = nullptr;
     } else {
-        plik >> temp_string;
+        if (kierowca_1 == nullptr) {
+            kierowca_1 = new kierowca;
+        }
         kierowca_1->wimie(temp_string);
-        plik >> temp_string;
+        getline(plik, temp_string);
         kierowca_1->wnazwisko(temp_string);
-
         plik >> temp_int;
         kierowca_1->wwiek(temp_int);
         plik >> temp_int;
         kierowca_1->wfprawo_jazdy(temp_int);
     }
-    plik >> temp_double;
+    plik >> temp_double>>ws;
     bak_1.set(temp_double);
-    plik >> temp_int;
+    plik >> temp_int>>ws;
     silnik_1.set(temp_int);
 }
 

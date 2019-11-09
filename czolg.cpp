@@ -51,9 +51,9 @@ int czolg::fout_info(ofstream & plik) {
 int czolg::fin_info(ifstream &plik) {
     pojazd_silnikowy::fin_info(plik);
     int temp_int;
-    plik >> temp_int;
+    plik >> temp_int>>ws;
     wamunicja(temp_int);
-    plik >> temp_int;
+    plik >> temp_int>>ws;
     wzaladowany(temp_int);
 }
 
@@ -65,11 +65,11 @@ bool czolg::rzaladowany() {
     return zaladowany;
 }
 
-int czolg::wamunicja(int ilosc) {
+int czolg::wamunicja(int &ilosc) {
     amunicja = ilosc;
 }
 
-int czolg::wzaladowany(int stan) {
+int czolg::wzaladowany(int &stan) {
     zaladowany = stan;
 }
 

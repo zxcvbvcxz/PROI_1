@@ -30,7 +30,7 @@ bool silnik::rwlaczony(){
     return wlaczony;
 }
 
-int silnik::set(int stan){
+int silnik::set(int &stan){
     wlaczony = stan;
 }
 bool silnik::operator++() {

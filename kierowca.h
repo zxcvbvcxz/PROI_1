@@ -26,10 +26,10 @@ public:
     int rwiek();
     bool rfprawo_jazdy();
 
-    int wimie(string &imie_);
-    int wnazwisko(string &nazwisko_);
-    int wwiek(int& wiek_);
-    int wfprawo_jazdy(bool prawo_);
+    int wimie(string &imie1);
+    int wnazwisko(string &nazwisko1);
+    int wwiek(int& wiek1);
+    int wfprawo_jazdy(bool prawo1);
 
     bool operator++(); //zwiększa wiek kierowcy o 1
     bool operator--(); //zmniejsza wiek kierowcy o 1

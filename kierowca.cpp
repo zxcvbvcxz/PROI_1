@@ -70,16 +70,16 @@ bool kierowca::rfprawo_jazdy() {
     return prawo_jazdy;
 }
 
-int kierowca::wimie(string &imie_) {
-    imie = imie_;
+int kierowca::wimie(string &imie1) {
+    imie = imie1;
 }
 
-int kierowca::wnazwisko(string& nazwisko_) {
-    nazwisko = nazwisko_;
+int kierowca::wnazwisko(string& nazwisko1) {
+    nazwisko = nazwisko1;
 }
 
-int kierowca::wwiek(int &wiek_) {
-    wiek = wiek_;
+int kierowca::wwiek(int &wiek1) {
+    wiek = wiek1;
 }
 
 int kierowca::wfprawo_jazdy(bool prawo_) {
