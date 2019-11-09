@@ -26,7 +26,13 @@ int silnik::wylacz() {
     }
     return 0;
 }
+bool silnik::rwlaczony(){
+    return wlaczony;
+}
 
+int silnik::set(int stan){
+    wlaczony = stan;
+}
 bool silnik::operator++() {
     wlacz();
 }

@@ -3,8 +3,6 @@
 #include "kierowca.h"
 #include"Funkcje_pomocnicze.h"
 
-
-
 int kierowca::in_kierowca() {
     cout << "Podaj imię kierowcy" << endl;
     getline(cin, imie);
@@ -54,6 +52,38 @@ int kierowca::out_kierowca() {
         cout << "Nie" << endl;
     }
     cout << "--------------------------------------" << endl;
+}
+
+string kierowca::rimie() {
+    return imie;
+}
+
+string kierowca::rnazwisko() {
+    return nazwisko;
+}
+
+int kierowca::rwiek() {
+    return wiek;
+}
+
+bool kierowca::rfprawo_jazdy() {
+    return prawo_jazdy;
+}
+
+int kierowca::wimie(string &imie_) {
+    imie = imie_;
+}
+
+int kierowca::wnazwisko(string& nazwisko_) {
+    nazwisko = nazwisko_;
+}
+
+int kierowca::wwiek(int &wiek_) {
+    wiek = wiek_;
+}
+
+int kierowca::wfprawo_jazdy(bool prawo_) {
+    prawo_jazdy = prawo_;
 }
 
 bool kierowca::czy_prawo_jazdy() {

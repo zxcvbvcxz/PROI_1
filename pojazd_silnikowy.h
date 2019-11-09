@@ -9,6 +9,7 @@
 #include "bagaznik.h"
 #include"bak.h"
 #include"silnik.h"
+#include<fstream>
 
 using namespace std;
 
@@ -32,6 +33,8 @@ public:
 
     virtual int in_info() = 0; //wpisuje podstawowe dane 
     virtual int out_info() = 0; //wypisuje podstawowe dane 
+    virtual int fin_info(ifstream &plik) = 0;
+    virtual int fout_info(ofstream &plik) = 0;
 
     int in_kierowca(); //wprowadza kierowcę do pojazdu
     int out_kierowca(); //wypisuje informacje o kierowcy
@@ -50,7 +53,7 @@ public:
     bool operator--(); //wyłącza silnik
     friend ostream & operator<<(ostream & os, pojazd_silnikowy &pojazd1); //wypisuje podstawowe informacje
     friend istream & operator>>(istream & is, pojazd_silnikowy &pojazd1);
-
+    friend ofstream & operator<<(ofstream & os, pojazd_silnikowy &pojazd_silnikowy1);
 };
 
 #endif /* POJAZD_SILNIKOWY_H */

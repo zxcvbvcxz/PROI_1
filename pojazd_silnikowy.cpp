@@ -8,9 +8,9 @@
 #include"bak.h"
 #include"silnik.h"
 #include "Funkcje_pomocnicze.h"
+#include<fstream>
 
 using namespace std;
-
 
 pojazd_silnikowy::pojazd_silnikowy() {
     rocznik = 0;
@@ -111,6 +111,52 @@ int pojazd_silnikowy::out_info() {
     return 0;
 };
 
+int pojazd_silnikowy::fout_info(ofstream &plik) {
+    plik << marka << endl;
+    plik << model << endl;
+    plik << rocznik << endl;
+    plik << spalanie_na_100km << endl;
+    if (kierowca_1 == nullptr) {
+        plik << "nullptr" << endl;
+    } else {
+        plik << kierowca_1->rimie() << endl;
+        plik << kierowca_1->rnazwisko() << endl;
+        plik << kierowca_1->rwiek() << endl;
+        plik << kierowca_1->rfprawo_jazdy() << endl;
+    }
+    plik << bak_1.info_bak_v() << endl;
+    plik << silnik_1.rwlaczony() << endl;
+}
+
+int pojazd_silnikowy::fin_info(ifstream &plik) {
+    int temp_int;
+    string temp_string;
+    double temp_double;
+    plik >> marka;
+    plik >> model;
+    plik >> rocznik;
+    plik >> spalanie_na_100km;
+
+    plik >> temp_string;
+    if (temp_string == "nullptr") {
+        kierowca_1 = nullptr;
+    } else {
+        plik >> temp_string;
+        kierowca_1->wimie(temp_string);
+        plik >> temp_string;
+        kierowca_1->wnazwisko(temp_string);
+
+        plik >> temp_int;
+        kierowca_1->wwiek(temp_int);
+        plik >> temp_int;
+        kierowca_1->wfprawo_jazdy(temp_int);
+    }
+    plik >> temp_double;
+    bak_1.set(temp_double);
+    plik >> temp_int;
+    silnik_1.set(temp_int);
+}
+
 int pojazd_silnikowy::in_kierowca() {
     if (kierowca_1 == nullptr) {
         kierowca_1 = new kierowca;
@@ -139,6 +185,7 @@ int pojazd_silnikowy::usun_kierowca() {
     return 0;
 
 }
+
 bool pojazd_silnikowy::out_prawo_jazdy() {
     if (kierowca_1 == nullptr) {
         cout << "Nie ma kierowcy w samochodzie" << endl;
@@ -210,7 +257,13 @@ ostream & operator<<(ostream & os, pojazd_silnikowy &pojazd_silnikowy1) {
     pojazd_silnikowy1.out_info();
     return os;
 }
+
 istream & operator>>(istream & is, pojazd_silnikowy &pojazd_silnikowy1) {
     pojazd_silnikowy1.in_info();
     return is;
+}
+
+ofstream & operator<<(ofstream & os, pojazd_silnikowy &pojazd_silnikowy1) {
+    pojazd_silnikowy1.fout_info(os);
+    return os;
 }

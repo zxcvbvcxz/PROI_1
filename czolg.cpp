@@ -42,6 +42,37 @@ int czolg::out_info() {
     return 0;
 }
 
+int czolg::fout_info(ofstream & plik) {
+    pojazd_silnikowy::fout_info(plik);
+    plik << ramunicja() << endl;
+    plik << rzaladowany() << endl;
+}
+
+int czolg::fin_info(ifstream &plik) {
+    pojazd_silnikowy::fin_info(plik);
+    int temp_int;
+    plik >> temp_int;
+    wamunicja(temp_int);
+    plik >> temp_int;
+    wzaladowany(temp_int);
+}
+
+int czolg::ramunicja() {
+    return amunicja;
+}
+
+bool czolg::rzaladowany() {
+    return zaladowany;
+}
+
+int czolg::wamunicja(int ilosc) {
+    amunicja = ilosc;
+}
+
+int czolg::wzaladowany(int stan) {
+    zaladowany = stan;
+}
+
 int czolg::dodaj_amunicje(int ilosc) {
     if (amunicja == 100) {
         cout << "Limit amunicji wynosi 100; Nie można dodać więcej amunicji" << endl;
@@ -148,5 +179,15 @@ ostream & operator<<(ostream & os, czolg &czolg1) {
 
 istream & operator>>(istream & is, czolg &czolg1) {
     czolg1.in_info();
+    return is;
+}
+
+ofstream & operator<<(ofstream & os, czolg &czolg1) {
+    czolg1.fout_info(os);
+    return os;
+}
+
+ifstream & operator<<(ifstream & is, czolg &czolg1) {
+    czolg1.fin_info(is);
     return is;
 }

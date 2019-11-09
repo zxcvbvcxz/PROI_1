@@ -43,8 +43,13 @@ double bak::info_bak() {
     cout << "W baku jest " << stan_bak << "L paliwa" << endl;
     return 0;
 }
-double bak::info_bak_v(){
+
+double bak::info_bak_v() {
     return stan_bak;
+}
+
+int bak::set(double litry) {
+    stan_bak = litry;
 }
 
 bool bak::operator++() {

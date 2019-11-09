@@ -4,6 +4,7 @@
 #define CZOLG_H
 #include"pojazd_silnikowy.h"
 
+
 class czolg : public pojazd_silnikowy
 {
 private:
@@ -18,6 +19,14 @@ public:
 
     int in_info(); //Wpisuje podstawowe dane 
     int out_info(); //Wypisuje podstawowe dane 
+    int fout_info(ofstream &plik);
+    int fin_info(ifstream &plik);
+    
+    int ramunicja();
+    bool rzaladowany();
+    
+    int wamunicja(int ilosc);
+    int wzaladowany(int stan);
 
     int dodaj_amunicje(int ilosc);//Dodaje wpisaną ilość amunicji
     int laduj();//Ładuje armatę czołgu
@@ -30,6 +39,8 @@ public:
 
     friend ostream & operator<<(ostream & os, czolg &czolg1);
     friend istream & operator>>(istream & is, czolg &czolg1);
+    friend ofstream & operator<<(ofstream & os, czolg &czolg1);
+    friend ifstream & operator<<(ifstream & is, czolg &czolg1);
 };
 
 #endif /* CZOŁG_H */
