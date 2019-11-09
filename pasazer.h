@@ -24,6 +24,17 @@ public:
     int out_pasazer_czolg(); //wypisuje dane z klasy nazywając pasazera członkiem załogi
     int out_pasazer_radiowoz(); //wypisuje dane z klasy nazywając pasazera zatrzymanym
     int usun_pasazer();//usuwa pasazera 
+    
+    bool robecny();
+    string rimie();
+    string rnazwisko();
+    int rwiek();
+    
+    int wobecny(int &ob);
+    int wimie(string &im);
+    int wnazwisko(string &na);
+    int wwiek(int &wi);
+    
     bool czy_obecny(); //zwraca true jeśli pasażer jest obecny
     bool operator++(); //zwiększa wiek pasażera
     bool operator--(); //zmniejsza wiek pasażera

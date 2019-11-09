@@ -24,19 +24,19 @@ int main(int argc, char** argv) {
     pojazd_silnikowy * lista[3];
     czolg tiger;
     czolg t34;
-    // samochod reanult;
+    samochod sam;
     //radiowoz pol;
 
-    tiger.in_kierowca();
-    tiger.in_info();
+    samochod sam2;
 
-    ofstream fout("tutaj.txt");
-    fout << tiger;
-    //    fout.close();
     ifstream fin("tutaj.txt");
-    ofstream fout2("Dane 2 czolgu.txt");
-    fin >> t34;
-    fout2 << t34;
+    fin >> sam2;
+    cout << sam2;
+    sam2.out_all_pasazer();
+
+
+
+
 
 
     //    lista[0] = &tiger;

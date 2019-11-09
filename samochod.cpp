@@ -5,20 +5,22 @@
 #include "pasazer.h"
 #include "bak.h"
 #include "silnik.h"
+#include <fstream>
 
 using namespace std;
 
 samochod::samochod(int miejsca) {
     if (miejsca < 0) {
-        miejsca = 0;
+        miejsca_dla_pasazerow = 0;
     }
     if (miejsca > 7) {
-        miejsca = 7;
+        miejsca_dla_pasazerow = 7;
     }
     if (miejsca > 0) {
         miejsca_dla_pasazerow = miejsca;
         pasazerowie = new pasazer[miejsca];
     } else {
+        miejsca_dla_pasazerow = 0;
         pasazerowie = nullptr;
     }
 
@@ -91,6 +93,53 @@ int samochod::out_info() {
     cout << "++++++++++++++++++++++++++++++++++++++" << endl;
     return 0;
 };
+
+int samochod::fout_info(ofstream& plik) {
+    pojazd_silnikowy::fout_info(plik);
+    plik << miejsca_dla_pasazerow << endl;
+    if (miejsca_dla_pasazerow > 0) {
+        for (int i = 0; i < miejsca_dla_pasazerow; i++) {
+            plik << pasazerowie[i].robecny() << endl;
+            plik << pasazerowie[i].rimie() << endl;
+            plik << pasazerowie[i].rnazwisko() << endl;
+            plik << pasazerowie[i].rwiek() << endl;
+        }
+    }
+    plik << bagaznik_1.czy_otwarty() << endl;
+    plik << bagaznik_1.czy_zaladowany() << endl;
+}
+
+int samochod::fin_info(ifstream &plik) {
+    pojazd_silnikowy::fin_info(plik);
+    int temp_int;
+    string temp_string;
+    if (miejsca_dla_pasazerow > 0) {
+        delete [] pasazerowie;
+    }
+    plik >> temp_int;
+    plik.ignore(1000,'\n');
+    miejsca_dla_pasazerow = temp_int;
+    pasazerowie = new pasazer[miejsca_dla_pasazerow];
+
+    for (int i = 0; i < miejsca_dla_pasazerow; i++) {
+        plik >> temp_int;
+        plik.ignore(1000,'\n');
+        pasazerowie[i].wobecny(temp_int);
+        getline(plik, temp_string);
+        pasazerowie[i].wimie(temp_string);
+        getline(plik, temp_string);
+        pasazerowie[i].wnazwisko(temp_string);
+        plik >> temp_int;
+        plik.ignore(1000,'\n');
+        pasazerowie[i].wwiek(temp_int);
+    }
+    plik >> temp_int;
+    plik.ignore(1000,'\n');
+    bagaznik_1.set_otwarty(temp_int);
+    plik >> temp_int;
+    plik.ignore(1000,'\n');
+    bagaznik_1.set_zaladowany(temp_int);
+}
 
 int samochod::in_pasazer(int miejsce) {
     if (miejsca_dla_pasazerow == 0) {
@@ -185,4 +234,14 @@ ostream & operator<<(ostream & os, samochod &samochod1) {
 istream & operator>>(istream & is, samochod &samochod1) {
     samochod1.in_info();
     return is;
+}
+
+ofstream & operator<<(ofstream & os, samochod &samochod1) {
+    samochod1.fout_info(os);
+    return os;
+}
+
+ifstream & operator>>(ifstream & os, samochod &samochod1) {
+    samochod1.fin_info(os);
+    return os;
 }

@@ -66,7 +66,7 @@ int pasazer::out_pasazer() {
     return 0;
 }
 
-int pasazer::out_pasazer_czolg(){
+int pasazer::out_pasazer_czolg() {
     if (obecny == false) {
         cout << "Nie ma członka załogi na danym miejscu" << endl;
         return 0;
@@ -91,7 +91,8 @@ int pasazer::out_pasazer_czolg(){
     cout << "--------------------------------------" << endl;
     return 0;
 }
-int pasazer::out_pasazer_radiowoz(){
+
+int pasazer::out_pasazer_radiowoz() {
     if (obecny == false) {
         cout << "Nie ma zatrzymanego na danym miejscu" << endl;
         return 0;
@@ -122,6 +123,38 @@ int pasazer::usun_pasazer() {
     imie.clear();
     nazwisko.clear();
     wiek = 0;
+}
+
+bool pasazer::robecny() {
+    return obecny;
+}
+
+string pasazer::rimie() {
+    return imie;
+}
+
+string pasazer::rnazwisko() {
+    return nazwisko;
+}
+
+int pasazer::rwiek() {
+    return wiek;
+}
+
+int pasazer::wobecny(int &ob) {
+    obecny = ob;
+}
+
+int pasazer::wimie(string &im) {
+    imie = im;
+}
+
+int pasazer::wnazwisko(string &na) {
+    nazwisko = na;
+}
+
+int pasazer::wwiek(int &wi) {
+    wiek = wi;
 }
 
 bool pasazer::czy_obecny() {

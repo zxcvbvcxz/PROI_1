@@ -44,33 +44,20 @@ int czolg::out_info() {
 
 int czolg::fout_info(ofstream & plik) {
     pojazd_silnikowy::fout_info(plik);
-    plik << ramunicja() << endl;
-    plik << rzaladowany() << endl;
+    plik << amunicja << endl;
+    plik << zaladowany << endl;
 }
 
 int czolg::fin_info(ifstream &plik) {
     pojazd_silnikowy::fin_info(plik);
     int temp_int;
-    plik >> temp_int>>ws;
-    wamunicja(temp_int);
-    plik >> temp_int>>ws;
-    wzaladowany(temp_int);
-}
-
-int czolg::ramunicja() {
-    return amunicja;
-}
-
-bool czolg::rzaladowany() {
-    return zaladowany;
-}
-
-int czolg::wamunicja(int &ilosc) {
-    amunicja = ilosc;
-}
-
-int czolg::wzaladowany(int &stan) {
-    zaladowany = stan;
+    plik >> temp_int;
+    plik.ignore(1000,'\n');
+    amunicja = 3;
+    amunicja = temp_int;
+    plik >> temp_int;
+    plik.ignore(1000,'\n');
+    zaladowany = temp_int;
 }
 
 int czolg::dodaj_amunicje(int ilosc) {

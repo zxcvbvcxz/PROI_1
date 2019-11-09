@@ -9,7 +9,7 @@
 #include"bak.h"
 #include"silnik.h"
 #include "pojazd_silnikowy.h"
-
+#include<fstream>
 using namespace std;
 
 class samochod : public pojazd_silnikowy
@@ -26,6 +26,8 @@ public:
     
     int in_info(); //wpisuje podstawowe dane 
     int out_info(); //wypisuje podstawowe dane 
+    int fout_info(ofstream& plik);
+    int fin_info(ifstream &plik);
     
     
 
@@ -44,6 +46,8 @@ public:
     
     friend ostream & operator<<(ostream & os, samochod &samochod1); //wypisuje podstawowe informacje
     friend istream & operator>>(istream & is, samochod &samochod1);
+    friend ofstream & operator<<(ofstream & os, samochod &samochod1);
+    friend ifstream & operator>>(ifstream & os, samochod &samochod1);
 };
 
 

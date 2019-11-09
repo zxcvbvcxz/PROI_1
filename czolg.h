@@ -22,11 +22,6 @@ public:
     int fout_info(ofstream &plik);
     int fin_info(ifstream &plik);
     
-    int ramunicja();
-    bool rzaladowany();
-    
-    int wamunicja(int &ilosc);
-    int wzaladowany(int &stan);
 
     int dodaj_amunicje(int ilosc);//Dodaje wpisaną ilość amunicji
     int laduj();//Ładuje armatę czołgu
