@@ -40,7 +40,7 @@ public:
     friend ostream & operator<<(ostream & os, czolg &czolg1);
     friend istream & operator>>(istream & is, czolg &czolg1);
     friend ofstream & operator<<(ofstream & os, czolg &czolg1);
-    friend ifstream & operator<<(ifstream & is, czolg &czolg1);
+    friend ifstream & operator>>(ifstream & is, czolg &czolg1);
 };
 
 #endif /* CZOŁG_H */

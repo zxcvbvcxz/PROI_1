@@ -29,9 +29,9 @@ int main(int argc, char** argv) {
     
 //    tiger.in_kierowca();
 //    tiger.in_info();
-
+//
     ofstream fout("tutaj1.txt");
-    fout << tiger;
+//    fout << tiger;
     ifstream fin("tutaj.txt");
     fin >> t34;
     fout << t34;

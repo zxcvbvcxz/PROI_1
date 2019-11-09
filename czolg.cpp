@@ -187,7 +187,7 @@ ofstream & operator<<(ofstream & os, czolg &czolg1) {
     return os;
 }
 
-ifstream & operator<<(ifstream & is, czolg &czolg1) {
+ifstream & operator>>(ifstream & is, czolg &czolg1) {
     czolg1.fin_info(is);
     return is;
 }
