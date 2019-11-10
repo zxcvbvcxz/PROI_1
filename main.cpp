@@ -28,6 +28,10 @@ int main(int argc, char** argv) {
     ofstream fout_samochod("samochod.txt");
     ofstream fout_radiowoz("radiowoz.txt");
 
+    fout_czolg << czolg1;
+    fout_samochod << sam;
+    fout_radiowoz << rad;
+
     ifstream fin_czolg("czolg.txt");
     ifstream fin_samochod("samochod.txt");
     ifstream fin_radiowoz("radiowoz.txt");
@@ -256,6 +260,171 @@ int main(int argc, char** argv) {
 
                 break;
             case 2://samochod
+                while (1) {
+                    if (zakoncz) {
+                        break;
+                    }
+                    while (true) {
+                        cout << "Co chcesz zrobić z samochodem?" << endl;
+                        cout << "1.Wprowadź podstawowe informacje o samochodzie" << endl;
+                        cout << "2.Wypisz podstawowe informacje o samochodzie" << endl;
+                        cout << "3.Wczytaj stan samochodu z pliku" << endl;
+                        cout << "4.Zapisz stan samochodu do pliku" << endl;
+                        cout << "5.Wprowadź kierowcę do samochodu" << endl;
+                        cout << "6.Wypisz informacje o kierowcy samochodu" << endl;
+                        cout << "7.Usuń kierowcę samochodu" << endl;
+                        cout << "8.Zatankuj paliwo" << endl;
+                        cout << "9.Wypisz informacje o stanie baku" << endl;
+                        cout << "10.Włącz silnik" << endl;
+                        cout << "11.Wyłącz silnik" << endl;
+                        cout << "12.Przejedź dystans" << endl;
+
+                        cout << "13.Wprowadź pasażera na dane miejsce" << endl;
+                        cout << "14.Wypisz informacje o pasażerze" << endl;
+                        cout << "15.Wypisz informacje o wszystkich pasażerach" << endl;
+                        cout << "16.Usuń pasażera z danego miejsca" << endl;
+                        cout << "17.Usuń wszystkich pasażerów" << endl;
+                        cout << "18.Otwórz bagażnik" << endl;
+                        cout << "19.Zamknij bagażnik" << endl;
+                        cout << "20.Załaduj bagażnik" << endl;
+                        cout << "21.Rozładuj bagażnik" << endl;
+                        cout << "22.Skończ zarządzać samochodem" << endl;
+                        if (wczytaj_double(temp_double)) {
+                            if (temp_double >= 1 and temp_double <= 22 and(temp_double - int(temp_double)) == 0) {
+                                wybor = (int) temp_double;
+                                break;
+                            } else {
+                                cout << "Proszę podać liczbę całkowitą z zakresu od 1 do 22" << endl;
+                            }
+                        }
+                    }
+                    if (zakoncz) {
+                        break;
+                    }
+                    switch (wybor) {
+                        case 1:
+                            cin >> sam;
+                            break;
+                        case 2:
+                            cout << sam;
+                            break;
+                        case 3:
+                            fin_czolg >> sam;
+                            break;
+                        case 4:
+                            fout_czolg << sam;
+                            break;
+                        case 5:
+                            sam.in_kierowca();
+                            break;
+                        case 6:
+                            sam.out_kierowca();
+                            break;
+                        case 7:
+                            sam.usun_kierowca();
+                            break;
+                        case 8:
+                            sam.in_bak();
+                            break;
+                        case 9:
+                            sam.out_bak();
+                            break;
+                        case 10:
+                            sam.on_silnik();
+                            break;
+                        case 11:
+                            sam.off_silnik();
+                            break;
+                        case 12:
+                            cout << "Podaj ile kilometrów chesz przejechać" << endl;
+                            while (1) {
+                                if (wczytaj_double(temp_double)) {
+                                    if (temp_double >= 0) {
+                                        break;
+                                    } else {
+                                        cout << "Proszę podać liczbę nieujemną" << endl;
+                                    }
+                                }
+                            }
+                            sam.przejedz(temp_double);
+                            break;
+                        case 13:
+                        {
+                            int miejsce;
+                            while (true) {
+                                cout << "Podaj numer miejsca na którym chesz posadzić pasażera" << endl;
+                                double temp_double;
+                                if (wczytaj_double(temp_double)) {
+                                    if (temp_double >= 0 and temp_double <= 6 and (temp_double - int(temp_double)) == 0) {
+                                        miejsce = (int) temp_double;
+                                        break;
+                                    } else {
+                                        cout << "Miejsce musi być liczbą całkowitą z zakresu od 0 do 6" << endl;
+                                    }
+                                }
+                            }
+                            sam.in_pasazer(miejsce);
+                        }
+                            break;
+                        case 14:
+                        {
+                            int miejsce;
+                            while (true) {
+                                cout << "Podaj numer miejsca z którego chesz wypisać informacje o pasażerze" << endl;
+                                double temp_double;
+                                if (wczytaj_double(temp_double)) {
+                                    if (temp_double >= 0 and temp_double <= 6 and (temp_double - int(temp_double)) == 0) {
+                                        miejsce = (int) temp_double;
+                                        break;
+                                    } else {
+                                        cout << "Miejsce musi być liczbą całkowitą z zakresu od 0 do 6" << endl;
+                                    }
+                                }
+                            }
+                            sam.out_pasazer(miejsce);
+                        }
+                            break;
+                        case 15:
+                            sam.out_all_pasazer();
+                            break;
+                        case 16:
+                        {
+                            int miejsce;
+                            while (true) {
+                                cout << "Podaj numer miejsca z którego chesz usunąć pasażera" << endl;
+                                double temp_double;
+                                if (wczytaj_double(temp_double)) {
+                                    if (temp_double >= 0 and temp_double <= 6 and (temp_double - int(temp_double)) == 0) {
+                                        miejsce = (int) temp_double;
+                                        break;
+                                    } else {
+                                        cout << "Miejsce musi być liczbą całkowitą z zakresu od 0 do 6" << endl;
+                                    }
+                                }
+                            }
+                            sam.usun_pasazer(miejsce);
+                        }
+                            break;
+                        case 17:
+                            sam.usun_all_pasazer();
+                            break;
+                        case 18:
+                            sam.open_bagaznik();
+                            break;
+                        case 19:
+                            sam.close_bagaznik();
+                            break;
+                        case 20:
+                            sam.zaladuj_bagaznik();
+                            break;
+                        case 21:
+                            sam.rozladuj_bagaznik();
+                            break;
+                        case 22:
+                            zakoncz = true;
+                            break;
+                    }
+                }
                 break;
             case 3://radiowoz
                 break;
