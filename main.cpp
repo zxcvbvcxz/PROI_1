@@ -309,10 +309,10 @@ int main(int argc, char** argv) {
                             cout << sam;
                             break;
                         case 3:
-                            fin_czolg >> sam;
+                            fin_samochod >> sam;
                             break;
                         case 4:
-                            fout_czolg << sam;
+                            fout_samochod << sam;
                             break;
                         case 5:
                             sam.in_kierowca();
@@ -427,10 +427,278 @@ int main(int argc, char** argv) {
                 }
                 break;
             case 3://radiowoz
+                while (1) {
+                    if (zakoncz) {
+                        break;
+                    }
+                    while (true) {
+                        cout << "Co chcesz zrobić z radiowozem?" << endl;
+                        cout << "1.Wprowadź podstawowe informacje o radiowozie" << endl;
+                        cout << "2.Wypisz podstawowe informacje o radiowozie" << endl;
+                        cout << "3.Wczytaj stan radiowozu z pliku" << endl;
+                        cout << "4.Zapisz stan radiowozu do pliku" << endl;
+                        cout << "5.Wprowadź kierowcę do radiowozu" << endl;
+                        cout << "6.Wypisz informacje o kierowcy radiowozu" << endl;
+                        cout << "7.Usuń kierowcę radiowozu" << endl;
+                        cout << "8.Zatankuj paliwo" << endl;
+                        cout << "9.Wypisz informacje o stanie baku" << endl;
+                        cout << "10.Włącz silnik" << endl;
+                        cout << "11.Wyłącz silnik" << endl;
+                        cout << "12.Przejedź dystans" << endl;
+
+                        cout << "13.Wprowadź pasażera na dane miejsce" << endl;
+                        cout << "14.Wypisz informacje o pasażerze" << endl;
+                        cout << "15.Wypisz informacje o wszystkich pasażerach" << endl;
+                        cout << "16.Usuń pasażera z danego miejsca" << endl;
+                        cout << "17.Usuń wszystkich pasażerów" << endl;
+                        cout << "18.Otwórz bagażnik" << endl;
+                        cout << "19.Zamknij bagażnik" << endl;
+                        cout << "20.Załaduj bagażnik" << endl;
+                        cout << "21.Rozładuj bagażnik" << endl;
+
+
+                        cout << "22.Włącz syganlizację dźwiękową" << endl;
+                        cout << "23.Wyłącz syganlizację dźwiękową" << endl;
+                        cout << "24.Włącz syganlizację świetlną" << endl;
+                        cout << "25.Wyłącz syganlizację świetlną" << endl;
+                        cout << "26.Zatrzymaj podejrzaną osobę" << endl;
+                        cout << "27.Zwolnij zatrzymanego" << endl;
+                        cout << "28.Wypisz dane zatrzymanej osoby z danego miejsca" << endl;
+                        cout << "29.Wypisz dane wszystkich zatrzymanych osób" << endl;
+                        cout << "30.Skończ zarządzać radiowozem" << endl;
+                        if (wczytaj_double(temp_double)) {
+                            if (temp_double >= 1 and temp_double <= 30 and(temp_double - int(temp_double)) == 0) {
+                                wybor = (int) temp_double;
+                                break;
+                            } else {
+                                cout << "Proszę podać liczbę całkowitą z zakresu od 1 do 30" << endl;
+                            }
+                        }
+                    }
+                    if (zakoncz) {
+                        break;
+                    }
+                    switch (wybor) {
+                        case 1:
+                            cin >> rad;
+                            break;
+                        case 2:
+                            cout << rad;
+                            break;
+                        case 3:
+                            fin_radiowoz >> rad;
+                            break;
+                        case 4:
+                            fout_radiowoz << rad;
+                            break;
+                        case 5:
+                            rad.in_kierowca();
+                            break;
+                        case 6:
+                            rad.out_kierowca();
+                            break;
+                        case 7:
+                            rad.usun_kierowca();
+                            break;
+                        case 8:
+                            rad.in_bak();
+                            break;
+                        case 9:
+                            rad.out_bak();
+                            break;
+                        case 10:
+                            rad.on_silnik();
+                            break;
+                        case 11:
+                            rad.off_silnik();
+                            break;
+                        case 12:
+                            cout << "Podaj ile kilometrów chesz przejechać" << endl;
+                            while (1) {
+                                if (wczytaj_double(temp_double)) {
+                                    if (temp_double >= 0) {
+                                        break;
+                                    } else {
+                                        cout << "Proszę podać liczbę nieujemną" << endl;
+                                    }
+                                }
+                            }
+                            rad.przejedz(temp_double);
+                            break;
+                        case 13:
+                        {
+                            int miejsce;
+                            while (true) {
+                                cout << "Podaj numer miejsca na którym chesz posadzić pasażera" << endl;
+                                double temp_double;
+                                if (wczytaj_double(temp_double)) {
+                                    if (temp_double >= 0 and temp_double <= 6 and (temp_double - int(temp_double)) == 0) {
+                                        miejsce = (int) temp_double;
+                                        break;
+                                    } else {
+                                        cout << "Miejsce musi być liczbą całkowitą z zakresu od 0 do 6" << endl;
+                                    }
+                                }
+                            }
+                            rad.in_pasazer(miejsce);
+                        }
+                            break;
+                        case 14:
+                        {
+                            int miejsce;
+                            while (true) {
+                                cout << "Podaj numer miejsca z którego chesz wypisać informacje o pasażerze" << endl;
+                                double temp_double;
+                                if (wczytaj_double(temp_double)) {
+                                    if (temp_double >= 0 and temp_double <= 6 and (temp_double - int(temp_double)) == 0) {
+                                        miejsce = (int) temp_double;
+                                        break;
+                                    } else {
+                                        cout << "Miejsce musi być liczbą całkowitą z zakresu od 0 do 6" << endl;
+                                    }
+                                }
+                            }
+                            rad.out_pasazer(miejsce);
+                        }
+                            break;
+                        case 15:
+                            rad.out_all_pasazer();
+                            break;
+                        case 16:
+                        {
+                            int miejsce;
+                            while (true) {
+                                cout << "Podaj numer miejsca z którego chesz usunąć pasażera" << endl;
+                                double temp_double;
+                                if (wczytaj_double(temp_double)) {
+                                    if (temp_double >= 0 and temp_double <= 6 and (temp_double - int(temp_double)) == 0) {
+                                        miejsce = (int) temp_double;
+                                        break;
+                                    } else {
+                                        cout << "Miejsce musi być liczbą całkowitą z zakresu od 0 do 6" << endl;
+                                    }
+                                }
+                            }
+                            rad.usun_pasazer(miejsce);
+                        }
+                            break;
+                        case 17:
+                            rad.usun_all_pasazer();
+                            break;
+                        case 18:
+                            rad.open_bagaznik();
+                            break;
+                        case 19:
+                            rad.close_bagaznik();
+                            break;
+                        case 20:
+                            rad.zaladuj_bagaznik();
+                            break;
+                        case 21:
+                            rad.rozladuj_bagaznik();
+                            break;
+                        case 22:
+                            rad.on_dzwiek();
+                            break;
+                        case 23:
+                            rad.off_dzwiek();
+                            break;
+                        case 24:
+                            rad.on_swiatlo();
+                            break;
+                        case 25:
+                            rad.off_swiatlo();
+                            break;
+                        case 26:
+                        {
+                            int miejsce, wiek;
+                            string imie, nazwisko;
+                            while (true) {
+                                cout << "Podaj numer miejsca na którym chesz posadzić zatrzymaną osobę" << endl;
+                                double temp_double;
+                                if (wczytaj_double(temp_double)) {
+                                    if (temp_double >= 0 and temp_double <= 2 and (temp_double - int(temp_double)) == 0) {
+                                        miejsce = (int) temp_double;
+                                        break;
+                                    } else {
+                                        cout << "Miejsce musi być liczbą całkowitą z zakresu od 0 do 2" << endl;
+                                    }
+                                }
+                            }
+                            cout << "Podaj imię zatrzymanego" << endl;
+                            getline(cin, imie);
+
+                            cout << "Podaj nazwisko zatrzymanego" << endl;
+                            getline(cin, nazwisko);
+
+                            while (true) {
+                                cout << "Podaj wiek zatrzymanego" << endl;
+                                double temp_double;
+                                if (wczytaj_double(temp_double)) {
+                                    if (temp_double >= 18 and temp_double <= 99 and (temp_double - int(temp_double)) == 0) {
+                                        wiek = (int) temp_double;
+                                        break;
+                                    } else {
+                                        cout << "Wiek musi być liczbą całkowitą z zakresu od 18 do 99 " << endl;
+                                    }
+                                }
+                            }
+                            rad.zatrzymaj(miejsce, imie, nazwisko, wiek);
+                        }
+                            break;
+                        case 27:
+                        {
+                            int miejsce;
+                            while (true) {
+                                cout << "Podaj numer miejsca z którego chesz zwolnić zatrzymanego" << endl;
+                                double temp_double;
+                                if (wczytaj_double(temp_double)) {
+                                    if (temp_double >= 0 and temp_double <= 2 and (temp_double - int(temp_double)) == 0) {
+                                        miejsce = (int) temp_double;
+                                        break;
+                                    } else {
+                                        cout << "Miejsce musi być liczbą całkowitą z zakresu od 0 do 2" << endl;
+                                    }
+                                }
+                            }
+                            rad.zwolnij(miejsce);
+                        }
+                            break;
+                        case 28:
+                        {
+                            int miejsce;
+                            while (true) {
+                                cout << "Podaj numer miejsca z chcesz wypisać dane podejrzanego" << endl;
+                                double temp_double;
+                                if (wczytaj_double(temp_double)) {
+                                    if (temp_double >= 0 and temp_double <= 2 and (temp_double - int(temp_double)) == 0) {
+                                        miejsce = (int) temp_double;
+                                        break;
+                                    } else {
+                                        cout << "Miejsce musi być liczbą całkowitą z zakresu od 0 do 2" << endl;
+                                    }
+                                }
+                            }
+                            rad.out_zatrzymani(miejsce);
+                        }
+                            break;
+                        case 29:
+                            rad.out_all_zatrzymani();
+                            break;
+                        case 30:
+                            zakoncz = true;
+                            break;
+                    }
+                }
                 break;
         }
     }
 
+
+    for (int i = 0; i < 3; i++) {
+        lista[i]->out_info();
+        cout << endl;
+    }
 
     cout << "Koniec main" << endl;
     return 0;

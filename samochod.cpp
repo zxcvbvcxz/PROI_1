@@ -117,27 +117,27 @@ int samochod::fin_info(ifstream &plik) {
         delete [] pasazerowie;
     }
     plik >> temp_int;
-    plik.ignore(1000,'\n');
+    plik.ignore(1000, '\n');
     miejsca_dla_pasazerow = temp_int;
     pasazerowie = new pasazer[miejsca_dla_pasazerow];
 
     for (int i = 0; i < miejsca_dla_pasazerow; i++) {
         plik >> temp_int;
-        plik.ignore(1000,'\n');
+        plik.ignore(1000, '\n');
         pasazerowie[i].wobecny(temp_int);
         getline(plik, temp_string);
         pasazerowie[i].wimie(temp_string);
         getline(plik, temp_string);
         pasazerowie[i].wnazwisko(temp_string);
         plik >> temp_int;
-        plik.ignore(1000,'\n');
+        plik.ignore(1000, '\n');
         pasazerowie[i].wwiek(temp_int);
     }
     plik >> temp_int;
-    plik.ignore(1000,'\n');
+    plik.ignore(1000, '\n');
     bagaznik_1.set_otwarty(temp_int);
     plik >> temp_int;
-    plik.ignore(1000,'\n');
+    plik.ignore(1000, '\n');
     bagaznik_1.set_zaladowany(temp_int);
 }
 

@@ -10,8 +10,8 @@
 #include<iostream>
 
 int demo_taxi() {
-    
-    
+
+
     samochod taxi;
     taxi.in_info();
     taxi.in_kierowca();

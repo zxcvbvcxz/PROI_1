@@ -19,22 +19,22 @@ private:
 public:
 
     int in_pasazer(); //wprowadza dane do klasy
-    int in_pasazer(string imie_,string nazwisko_,int wiek);//wprowadza dane do klasy
+    int in_pasazer(string imie_, string nazwisko_, int wiek); //wprowadza dane do klasy
     int out_pasazer(); //wypisuje dane z klasy
     int out_pasazer_czolg(); //wypisuje dane z klasy nazywając pasazera członkiem załogi
     int out_pasazer_radiowoz(); //wypisuje dane z klasy nazywając pasazera zatrzymanym
-    int usun_pasazer();//usuwa pasazera 
-    
-    bool robecny();
-    string rimie();
-    string rnazwisko();
-    int rwiek();
-    
-    int wobecny(int &ob);
-    int wimie(string &im);
-    int wnazwisko(string &na);
-    int wwiek(int &wi);
-    
+    int usun_pasazer(); //usuwa pasazera 
+
+    bool robecny(); //zwraca wartość zmiennej obecny
+    string rimie(); //zwraca imie
+    string rnazwisko(); //zwraca nazwisko
+    int rwiek(); //zwraca wiek
+
+    int wobecny(int &ob); //ustawia obecny na podaną wartosc
+    int wimie(string &im); //ustwia imie na podane
+    int wnazwisko(string &na); //ustawia nazwisko na podane
+    int wwiek(int &wi); //ustawia wiek na podany
+
     bool czy_obecny(); //zwraca true jeśli pasażer jest obecny
     bool operator++(); //zwiększa wiek pasażera
     bool operator--(); //zmniejsza wiek pasażera

@@ -19,8 +19,9 @@ public:
 
     int in_info(); //Wpisuje podstawowe dane 
     int out_info(); //Wypisuje podstawowe dane 
-    int fout_info(ofstream &plik);
-    int fin_info(ifstream &plik);
+    int fin_info(ifstream &plik);//wczytuje stan obiektu z pliku
+    int fout_info(ofstream &plik); //zapisuje stan obiektu do pliku
+    
     
 
     int dodaj_amunicje(int ilosc);//Dodaje wpisaną ilość amunicji

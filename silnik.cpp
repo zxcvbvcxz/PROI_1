@@ -6,7 +6,6 @@
 
 using namespace std;
 
-
 int silnik::wlacz() {
     if (wlaczony) {
         cout << "Silnik jest już włączony" << endl;
@@ -26,13 +25,15 @@ int silnik::wylacz() {
     }
     return 0;
 }
-bool silnik::rwlaczony(){
+
+bool silnik::rwlaczony() {
     return wlaczony;
 }
 
-int silnik::set(int &stan){
+int silnik::set(int &stan) {
     wlaczony = stan;
 }
+
 bool silnik::operator++() {
     wlacz();
 }

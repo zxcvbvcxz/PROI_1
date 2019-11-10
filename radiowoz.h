@@ -19,8 +19,9 @@ public:
     
     int in_info(); //wpisuje podstawowe dane 
     int out_info(); //wypisuje podstawowe dane 
-    int fout_info(ofstream& plik);
-    int fin_info(ifstream &plik);
+    int fin_info(ifstream &plik);//wczytuje stan obiektu z pliku
+    int fout_info(ofstream& plik); //zapisuje stan obiektu do pliku
+    
 
     int on_dzwiek(); //Włącza syganlizację świetlną
     int off_dzwiek(); //Wyłącza syganlizację świetlną

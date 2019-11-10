@@ -52,11 +52,11 @@ int czolg::fin_info(ifstream &plik) {
     pojazd_silnikowy::fin_info(plik);
     int temp_int;
     plik >> temp_int;
-    plik.ignore(1000,'\n');
+    plik.ignore(1000, '\n');
     amunicja = 3;
     amunicja = temp_int;
     plik >> temp_int;
-    plik.ignore(1000,'\n');
+    plik.ignore(1000, '\n');
     zaladowany = temp_int;
 }
 

@@ -141,9 +141,9 @@ int pojazd_silnikowy::fin_info(ifstream &plik) {
     getline(plik, marka);
     getline(plik, model);
     plik >> rocznik;
-    plik.ignore(1000,'\n');
+    plik.ignore(1000, '\n');
     plik >> spalanie_na_100km;
-    plik.ignore(1000,'\n');
+    plik.ignore(1000, '\n');
 
     getline(plik, temp_string);
     if (temp_string == "nullptr") {
@@ -161,10 +161,10 @@ int pojazd_silnikowy::fin_info(ifstream &plik) {
         kierowca_1->wfprawo_jazdy(temp_int);
     }
     plik >> temp_double;
-    plik.ignore(1000,'\n');
+    plik.ignore(1000, '\n');
     bak_1.set(temp_double);
     plik >> temp_int;
-    plik.ignore(1000,'\n');
+    plik.ignore(1000, '\n');
     silnik_1.set(temp_int);
 }
 
@@ -277,4 +277,9 @@ istream & operator>>(istream & is, pojazd_silnikowy &pojazd_silnikowy1) {
 ofstream & operator<<(ofstream & os, pojazd_silnikowy &pojazd_silnikowy1) {
     pojazd_silnikowy1.fout_info(os);
     return os;
+}
+
+ifstream & operator>>(ifstream & is, pojazd_silnikowy &pojazd_silnikowy1) {
+    pojazd_silnikowy1.fin_info(is);
+    return is;
 }

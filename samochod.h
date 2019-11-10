@@ -23,28 +23,29 @@ public:
     ~samochod(); //destruktor
     samochod(const samochod & sam1); //konstruktor kopiujący
     samochod &operator=(const samochod & sam1); //operator przypisania
-    
+
     int in_info(); //wpisuje podstawowe dane 
     int out_info(); //wypisuje podstawowe dane 
-    int fout_info(ofstream& plik);
-    int fin_info(ifstream &plik);
-    
-    
+    int fin_info(ifstream &plik); //wczytuje stan obiektu z pliku
+    int fout_info(ofstream& plik); //zapisuje stan obiektu do pliku
+
+
+
 
     int in_pasazer(int miejsce); //wprowadza pasażera na dane miejsce
     int out_pasazer(int miejsce); //wypisuje dane pasażera z danego miejsca
     int out_all_pasazer(); //wypisuje dane wszystkich pasażerów z auta
     int usun_pasazer(int miejsce); //usuwa pasażera z danego miejsca
-    int usun_all_pasazer();//usuwa wszystkich pasażerów z auta
+    int usun_all_pasazer(); //usuwa wszystkich pasażerów z auta
 
     int open_bagaznik(); //otwiera bagażnik
     int close_bagaznik(); //zamyka bagażnik
     int zaladuj_bagaznik(); //ładuje bagażnik
     int rozladuj_bagaznik(); //rozładowuje bagżnik
-    
+
     int przejedz(double kilometry); //przejeżdża daną liczbę kilometrów
-    
-    friend ostream & operator<<(ostream & os, samochod &samochod1); //wypisuje podstawowe informacje
+
+    friend ostream & operator<<(ostream & os, samochod &samochod1);
     friend istream & operator>>(istream & is, samochod &samochod1);
     friend ofstream & operator<<(ofstream & os, samochod &samochod1);
     friend ifstream & operator>>(ifstream & os, samochod &samochod1);
