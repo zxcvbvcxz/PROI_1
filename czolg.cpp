@@ -53,7 +53,6 @@ int czolg::fin_info(ifstream &plik) {
     int temp_int;
     plik >> temp_int;
     plik.ignore(1000, '\n');
-    amunicja = 3;
     amunicja = temp_int;
     plik >> temp_int;
     plik.ignore(1000, '\n');

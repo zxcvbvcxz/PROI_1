@@ -23,7 +23,6 @@ private:
     kierowca * kierowca_1 = nullptr;
     bak bak_1;
     silnik silnik_1;
-
 public:
 
     pojazd_silnikowy(); //konstruktor
