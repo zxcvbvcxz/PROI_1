@@ -25,6 +25,7 @@ public:
     samochod &operator=(const samochod & sam1); //operator przypisania
 
     int in_info(); //wpisuje podstawowe dane 
+    int in_info_set(int number);//wpisuje podstawowe dane - ustawia liczbę pasażerów na number
     int out_info(); //wypisuje podstawowe dane 
     int fin_info(ifstream &plik); //wczytuje stan obiektu z pliku
     int fout_info(ofstream& plik); //zapisuje stan obiektu do pliku

@@ -24,7 +24,7 @@ radiowoz::~radiowoz() {
 }
 
 int radiowoz::in_info() {
-    samochod::in_info();
+    samochod::in_info_set(1);
     double temp_double;
     cout << "Czy radiowóz ma włączoną syganlizację świetlną?" << endl;
     cout << " Wpisz 1 jeśli tak, wpisz 0 jeśli nie." << endl;

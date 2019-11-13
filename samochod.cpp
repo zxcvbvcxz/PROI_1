@@ -6,6 +6,7 @@
 #include "bak.h"
 #include "silnik.h"
 #include <fstream>
+#include"radiowoz.h"
 
 using namespace std;
 
@@ -79,6 +80,16 @@ int samochod::in_info() {
             }
         }
     }
+    pasazerowie = new pasazer[miejsca_dla_pasazerow];
+    return 0;
+}
+
+int samochod::in_info_set(int number) {
+    pojazd_silnikowy::in_info();
+    if (pasazerowie != nullptr) {
+        delete[] pasazerowie;
+    }
+    miejsca_dla_pasazerow = number;
     pasazerowie = new pasazer[miejsca_dla_pasazerow];
     return 0;
 }

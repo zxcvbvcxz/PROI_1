@@ -245,6 +245,11 @@ int pojazd_silnikowy::przejedz(double kilometry) {
         cout << "Nie ma paliwa w baku" << endl;
         return 0;
     }
+    if (silnik_1.rwlaczony() == 0) {
+        cout << "Nie można wyruszyć bo:" << endl;
+        cout << "Silnik jest wyłączony" << endl;
+        return 0;
+    }
     if (kierowca_1->czy_prawo_jazdy()) {
         double spalone_paliwo;
         spalone_paliwo = bak_1.spal(kilometry * (spalanie_na_100km / 100));
