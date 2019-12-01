@@ -16,7 +16,7 @@
 
 using namespace std;
 
-struct czolgi_struct{
+struct czolgi_struct {
     czolg cz;
     ofstream fout_czolg;
     ifstream fin_czolg;
@@ -26,8 +26,8 @@ int main(int argc, char** argv) {
 
 
 
-//    vector<ofstream> vfout_czolg;
-//    vfout_czolg.reserve(sizeof (ofstream) * 10);
+    //    vector<ofstream> vfout_czolg;
+    //    vfout_czolg.reserve(sizeof (ofstream) * 10);
 
     vector<ofstream> vfout_sam;
     vfout_sam.reserve(sizeof (ofstream) * 10);
@@ -35,8 +35,8 @@ int main(int argc, char** argv) {
     vector<ofstream> vfout_rad;
     vfout_rad.reserve(sizeof (ofstream) * 10);
 
-//    vector<ifstream> vfin_czolg;
-//    vfin_czolg.reserve(sizeof (ifstream) * 10);
+    //    vector<ifstream> vfin_czolg;
+    //    vfin_czolg.reserve(sizeof (ifstream) * 10);
 
     vector<ifstream> vfin_sam;
     vfin_sam.reserve(sizeof (ifstream) * 10);
@@ -47,7 +47,7 @@ int main(int argc, char** argv) {
 
     vector<czolgi_struct> czolgi;
     czolgi.reserve(sizeof (czolgi_struct) * 10);
-    
+
     vector<samochod> samochody;
     samochody.reserve(sizeof (samochod)*10);
     vector<radiowoz> radiowozy;
@@ -131,14 +131,16 @@ int main(int argc, char** argv) {
                     nr_czolg = licznik_czolg + 1;
                     t_str = plik_czolg + to_string((int) (nr_czolg)) + ".txt";
 
-                    
+
                     czolgi[licznik_czolg].fout_czolg.open(t_str.c_str());
 
 
                     czolgi[licznik_czolg].fin_czolg.open(t_str.c_str());
 
                     licznik_czolg++;
-
+//                    sort(czolgi.begin(), czolgi.end(), [](const czolgi_struct& a, const czolgi_struct & b) {
+//                        return a.cz.get__rocznik() > b.cz.get__rocznik();
+//                    });
 
                 } else {
                     cout << "Wybrano czolg nr." << nr_czolg << endl;
@@ -188,15 +190,18 @@ int main(int argc, char** argv) {
                     switch (wybor) {
                         case 1:
                             cin >> czolgi[nr_czolg - 1].cz;
+//                            sort(czolgi.begin(), czolgi.end(), [](const czolgi_struct& a, const czolgi_struct & b) {
+//                                return a.cz.get__rocznik() > b.cz.get__rocznik();
+//                            });
                             break;
                         case 2:
                             cout << czolgi[nr_czolg - 1].cz;
                             break;
                         case 3:
-                            czolgi[nr_czolg -1].fin_czolg >> czolgi[nr_czolg - 1].cz;
+                            czolgi[nr_czolg - 1].fin_czolg >> czolgi[nr_czolg - 1].cz;
                             break;
                         case 4:
-                            czolgi[nr_czolg -1].fout_czolg << czolgi[nr_czolg - 1].cz;
+                            czolgi[nr_czolg - 1].fout_czolg << czolgi[nr_czolg - 1].cz;
                             break;
                         case 5:
                             czolgi[nr_czolg - 1].cz.in_kierowca();

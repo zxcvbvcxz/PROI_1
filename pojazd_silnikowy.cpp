@@ -168,15 +168,15 @@ int pojazd_silnikowy::fin_info(ifstream &plik) {
     silnik_1.set(temp_int);
 }
 
-string pojazd_silnikowy::get_marka() {
+const string pojazd_silnikowy::get_marka() const {
     return marka;
 }
 
-string pojazd_silnikowy::get_model() {
+const string pojazd_silnikowy::get_model()const {
     return model;
 }
 
-int pojazd_silnikowy::get__rocznik() {
+const int pojazd_silnikowy::get__rocznik()const {
     return rocznik;
 }
 

@@ -34,9 +34,9 @@ public:
     virtual int out_info() = 0; //wypisuje podstawowe dane 
     virtual int fin_info(ifstream &plik) = 0; //wczytuje stan obiektu do pliku
     virtual int fout_info(ofstream &plik) = 0; //zapisuje stan obiektu do pliku
-    string get_marka();//zwraca markę
-    string get_model();// zwraca model
-    int get__rocznik();// zwraca rocznik
+    const string get_marka() const; //zwraca markę
+    const string get_model() const; // zwraca model
+    const int get__rocznik() const; // zwraca rocznik
 
     int in_kierowca(); //wprowadza kierowcę do pojazdu
     int out_kierowca(); //wypisuje informacje o kierowcy
