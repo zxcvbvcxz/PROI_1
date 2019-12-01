@@ -168,6 +168,18 @@ int pojazd_silnikowy::fin_info(ifstream &plik) {
     silnik_1.set(temp_int);
 }
 
+string pojazd_silnikowy::get_marka() {
+    return marka;
+}
+
+string pojazd_silnikowy::get_model() {
+    return model;
+}
+
+int pojazd_silnikowy::get__rocznik() {
+    return rocznik;
+}
+
 int pojazd_silnikowy::in_kierowca() {
     if (kierowca_1 == nullptr) {
         kierowca_1 = new kierowca;
