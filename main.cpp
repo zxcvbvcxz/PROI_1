@@ -11,41 +11,43 @@
 #include "radiowoz.h"
 #include"Funkcje_pomocnicze.h"
 #include <vector>
+#include <algorithm>
 
 
 using namespace std;
 
+struct czolgi_struct{
+    czolg cz;
+    ofstream fout_czolg;
+    ifstream fin_czolg;
+};
+
 int main(int argc, char** argv) {
 
 
-    vector<ofstream> vfout_czolg;
-    vfout_czolg.reserve(sizeof (ofstream) * 10);
+
+//    vector<ofstream> vfout_czolg;
+//    vfout_czolg.reserve(sizeof (ofstream) * 10);
 
     vector<ofstream> vfout_sam;
     vfout_sam.reserve(sizeof (ofstream) * 10);
 
     vector<ofstream> vfout_rad;
     vfout_rad.reserve(sizeof (ofstream) * 10);
-    //    ofstream fout_samochod("samochod.txt");
-    //    ofstream fout_radiowoz("radiowoz.txt");
-    //
-    //    fout_czolg << czolg1;
-    //    fout_samochod << sam;
-    //    fout_radiowoz << rad;
-    //
-    vector<ifstream> vfin_czolg;
-    vfin_czolg.reserve(sizeof (ifstream) * 10);
+
+//    vector<ifstream> vfin_czolg;
+//    vfin_czolg.reserve(sizeof (ifstream) * 10);
 
     vector<ifstream> vfin_sam;
     vfin_sam.reserve(sizeof (ifstream) * 10);
 
     vector<ifstream> vfin_rad;
     vfin_rad.reserve(sizeof (ifstream) * 10);
-    //    ifstream fin_samochod("samochod.txt");
-    //    ifstream fin_radiowoz("radiowoz.txt");
 
-    vector<czolg> czolgi;
-    czolgi.reserve(sizeof (czolg) * 10);
+
+    vector<czolgi_struct> czolgi;
+    czolgi.reserve(sizeof (czolgi_struct) * 10);
+    
     vector<samochod> samochody;
     samochody.reserve(sizeof (samochod)*10);
     vector<radiowoz> radiowozy;
@@ -98,12 +100,12 @@ int main(int argc, char** argv) {
                     cout << j << ". ";
                     cout.width(22);
                     cout << left;
-                    cout << i->get_marka();
+                    cout << i->cz.get_marka();
                     cout.width(22);
                     cout << left;
-                    cout << i->get_model();
+                    cout << i->cz.get_model();
                     cout.width(16);
-                    cout << i->get__rocznik() << endl;
+                    cout << i->cz.get__rocznik() << endl;
                 }
             }
                 if (czolgi.begin() == czolgi.end()) {
@@ -123,19 +125,17 @@ int main(int argc, char** argv) {
                 }
                 if (nr_czolg == 0) {
                     {
-                        czolg temp_czolg;
-                        czolgi.push_back(temp_czolg);
+                        czolgi_struct temp_czolg;
+                        czolgi.push_back(move(temp_czolg));
                     }
                     nr_czolg = licznik_czolg + 1;
                     t_str = plik_czolg + to_string((int) (nr_czolg)) + ".txt";
 
-                    ofstream fout_czolg;
-                    vfout_czolg.push_back(move(fout_czolg));
-                    vfout_czolg[licznik_czolg].open(t_str.c_str());
+                    
+                    czolgi[licznik_czolg].fout_czolg.open(t_str.c_str());
 
-                    ifstream fin_czolg;
-                    vfin_czolg.push_back(move(fin_czolg));
-                    vfin_czolg[licznik_czolg].open(t_str.c_str());
+
+                    czolgi[licznik_czolg].fin_czolg.open(t_str.c_str());
 
                     licznik_czolg++;
 
@@ -187,37 +187,37 @@ int main(int argc, char** argv) {
                     }
                     switch (wybor) {
                         case 1:
-                            cin >> czolgi[nr_czolg - 1];
+                            cin >> czolgi[nr_czolg - 1].cz;
                             break;
                         case 2:
-                            cout << czolgi[nr_czolg - 1];
+                            cout << czolgi[nr_czolg - 1].cz;
                             break;
                         case 3:
-                            vfin_czolg[nr_czolg - 1] >> czolgi[nr_czolg - 1];
+                            czolgi[nr_czolg -1].fin_czolg >> czolgi[nr_czolg - 1].cz;
                             break;
                         case 4:
-                            vfout_czolg[nr_czolg - 1] << czolgi[nr_czolg - 1];
+                            czolgi[nr_czolg -1].fout_czolg << czolgi[nr_czolg - 1].cz;
                             break;
                         case 5:
-                            czolgi[nr_czolg - 1].in_kierowca();
+                            czolgi[nr_czolg - 1].cz.in_kierowca();
                             break;
                         case 6:
-                            czolgi[nr_czolg - 1].out_kierowca();
+                            czolgi[nr_czolg - 1].cz.out_kierowca();
                             break;
                         case 7:
-                            czolgi[nr_czolg - 1].usun_kierowca();
+                            czolgi[nr_czolg - 1].cz.usun_kierowca();
                             break;
                         case 8:
-                            czolgi[nr_czolg - 1].in_bak();
+                            czolgi[nr_czolg - 1].cz.in_bak();
                             break;
                         case 9:
-                            czolgi[nr_czolg - 1].out_bak();
+                            czolgi[nr_czolg - 1].cz.out_bak();
                             break;
                         case 10:
-                            czolgi[nr_czolg - 1].on_silnik();
+                            czolgi[nr_czolg - 1].cz.on_silnik();
                             break;
                         case 11:
-                            czolgi[nr_czolg - 1].off_silnik();
+                            czolgi[nr_czolg - 1].cz.off_silnik();
                             break;
                         case 12:
                             cout << "Podaj ile kilometrów chesz przejechać" << endl;
@@ -230,7 +230,7 @@ int main(int argc, char** argv) {
                                     }
                                 }
                             }
-                            czolgi[nr_czolg - 1].przejedz(temp_double);
+                            czolgi[nr_czolg - 1].cz.przejedz(temp_double);
                             break;
                         case 13:
                             cout << "Podaj ile sztuk amunicji chesz dodać" << endl;
@@ -243,13 +243,13 @@ int main(int argc, char** argv) {
                                     }
                                 }
                             }
-                            czolgi[nr_czolg - 1].dodaj_amunicje(temp_double);
+                            czolgi[nr_czolg - 1].cz.dodaj_amunicje(temp_double);
                             break;
                         case 14:
-                            czolgi[nr_czolg - 1].laduj();
+                            czolgi[nr_czolg - 1].cz.laduj();
                             break;
                         case 15:
-                            czolgi[nr_czolg - 1].strzelaj();
+                            czolgi[nr_czolg - 1].cz.strzelaj();
                             break;
                         case 16:
                         {
@@ -285,7 +285,7 @@ int main(int argc, char** argv) {
                                     }
                                 }
                             }
-                            czolgi[nr_czolg - 1].dodaj_zaloge(miejsce, imie, nazwisko, wiek);
+                            czolgi[nr_czolg - 1].cz.dodaj_zaloge(miejsce, imie, nazwisko, wiek);
                         }
                             break;
                         case 17:
@@ -304,7 +304,7 @@ int main(int argc, char** argv) {
                                     }
                                 }
                             }
-                            czolgi[nr_czolg - 1].zwolnij_zaloge(miejsce);
+                            czolgi[nr_czolg - 1].cz.zwolnij_zaloge(miejsce);
                         }
                             break;
                         case 18:
@@ -324,11 +324,11 @@ int main(int argc, char** argv) {
                                 }
                             }
 
-                            czolgi[nr_czolg - 1].out_zaloga(miejsce);
+                            czolgi[nr_czolg - 1].cz.out_zaloga(miejsce);
                         }
                             break;
                         case 19:
-                            czolgi[nr_czolg - 1].out_all_zaloga();
+                            czolgi[nr_czolg - 1].cz.out_all_zaloga();
                             break;
                         case 20:
                             zakoncz = true;
