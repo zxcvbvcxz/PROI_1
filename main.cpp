@@ -26,6 +26,7 @@ int main(int argc, char** argv) {
     //    lista[2] = &rad;
     //
     vector<ofstream> vfout_czolg;
+    vfout_czolg.reserve(sizeof (ofstream) * 10);
     //    ofstream fout_samochod("samochod.txt");
     //    ofstream fout_radiowoz("radiowoz.txt");
     //
@@ -34,10 +35,12 @@ int main(int argc, char** argv) {
     //    fout_radiowoz << rad;
     //
     vector<ifstream> vfin_czolg;
+    vfin_czolg.reserve(sizeof (ifstream) * 10);
     //    ifstream fin_samochod("samochod.txt");
     //    ifstream fin_radiowoz("radiowoz.txt");
 
     vector<czolg> czolgi;
+    czolgi.reserve(sizeof (czolg) * 10);
     vector<samochod> samochody;
     vector<radiowoz> radiowozy;
     int licznik_czolg = 0;
@@ -83,14 +86,23 @@ int main(int argc, char** argv) {
         switch (wybor) {
             case 1://czołg   
                 cout << "Liczba dostępnych czołgów:" << endl;
+                cout << "   Marka:                Model:                Rocznik:" << endl;
+            {
+                int j = 0;
                 for (auto i = czolgi.begin(); i != czolgi.end(); i++) {
-                    int j = 0;
                     j++;
-                    cout << j << '.' << endl;
-                    cout.width(15);
-                    cout << i->get_marka() << i->get_model() << i->get__rocznik();
-                    cout.width(0);
+                    cout << j << ". ";
+                    cout.width(22);
+                    cout << left;
+                    cout << i->get_marka();
+                    cout.width(22);
+                    cout << left;
+                    cout << i->get_model();
+                    cout.width(16);
+                    cout << i->get__rocznik() << endl;
+                    //    cout.width(0);
                 }
+            }
                 if (czolgi.begin() == czolgi.end()) {
                     cout << "Nie ma dostępnych żadnych czołgów!" << endl;
                 }
@@ -111,7 +123,8 @@ int main(int argc, char** argv) {
                         czolg temp_czolg;
                         czolgi.push_back(temp_czolg);
                     }
-                    t_str = plik_czolg + to_string((int) (nr_czolg + 1)) + ".txt";
+                    nr_czolg = licznik_czolg + 1;
+                    t_str = plik_czolg + to_string((int) (nr_czolg)) + ".txt";
 
                     ofstream fout_czolg;
                     vfout_czolg.push_back(move(fout_czolg));
@@ -122,7 +135,7 @@ int main(int argc, char** argv) {
                     vfin_czolg[licznik_czolg].open(t_str.c_str());
 
                     licznik_czolg++;
-                    nr_czolg = licznik_czolg;
+
 
                 } else {
                     cout << "Wybrano czolg nr." << nr_czolg << endl;
@@ -322,7 +335,7 @@ int main(int argc, char** argv) {
 
                 break;
         }
-        break;
+        //break;
     }
 
     /*
