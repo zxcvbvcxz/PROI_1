@@ -22,36 +22,29 @@ struct czolgi_struct {
     ifstream fin_czolg;
 };
 
+struct sam_struct {
+    samochod s;
+    ofstream fout_sam;
+    ifstream fin_sam;
+};
+
+struct rad_struct {
+    radiowoz r;
+    ofstream fout_rad;
+    ifstream fin_rad;
+};
+
 int main(int argc, char** argv) {
-
-
-
-    //    vector<ofstream> vfout_czolg;
-    //    vfout_czolg.reserve(sizeof (ofstream) * 10);
-
-    vector<ofstream> vfout_sam;
-    vfout_sam.reserve(sizeof (ofstream) * 10);
-
-    vector<ofstream> vfout_rad;
-    vfout_rad.reserve(sizeof (ofstream) * 10);
-
-    //    vector<ifstream> vfin_czolg;
-    //    vfin_czolg.reserve(sizeof (ifstream) * 10);
-
-    vector<ifstream> vfin_sam;
-    vfin_sam.reserve(sizeof (ifstream) * 10);
-
-    vector<ifstream> vfin_rad;
-    vfin_rad.reserve(sizeof (ifstream) * 10);
-
 
     vector<czolgi_struct> czolgi;
     czolgi.reserve(sizeof (czolgi_struct) * 10);
 
-    vector<samochod> samochody;
-    samochody.reserve(sizeof (samochod)*10);
-    vector<radiowoz> radiowozy;
-    radiowozy.reserve(sizeof (radiowoz)*10);
+    vector<sam_struct> samochody;
+    samochody.reserve(sizeof (sam_struct)*10);
+    
+    vector<rad_struct> radiowozy;
+    radiowozy.reserve(sizeof (rad_struct)*10);
+    
     int licznik_czolg = 0;
     int licznik_sam = 0;
     int licznik_rad = 0;
@@ -352,12 +345,12 @@ int main(int argc, char** argv) {
                     cout << j << ". ";
                     cout.width(22);
                     cout << left;
-                    cout << i->get_marka();
+                    cout << i->s.get_marka();
                     cout.width(22);
                     cout << left;
-                    cout << i->get_model();
+                    cout << i->s.get_model();
                     cout.width(16);
-                    cout << i->get__rocznik() << endl;
+                    cout << i->s.get__rocznik() << endl;
                 }
             }
                 if (samochody.begin() == samochody.end()) {
@@ -377,19 +370,16 @@ int main(int argc, char** argv) {
                 }
                 if (nr_sam == 0) {
                     {
-                        samochod temp_sam;
-                        samochody.push_back(temp_sam);
+                        sam_struct temp_sam;
+                        samochody.push_back(move(temp_sam));
                     }
                     nr_sam = licznik_sam + 1;
                     t_str = plik_sam + to_string((int) (nr_sam)) + ".txt";
 
-                    ofstream fout_sam;
-                    vfout_sam.push_back(move(fout_sam));
-                    vfout_sam[licznik_sam].open(t_str.c_str());
-
-                    ifstream fin_sam;
-                    vfin_sam.push_back(move(fin_sam));
-                    vfin_sam[licznik_sam].open(t_str.c_str());
+                    
+                    samochody[licznik_sam].fout_sam.open(t_str.c_str());
+                    
+                    samochody[licznik_sam].fin_sam.open(t_str.c_str());   
 
                     licznik_sam++;
 
@@ -441,37 +431,37 @@ int main(int argc, char** argv) {
 
                     switch (wybor) {
                         case 1:
-                            cin >> samochody[nr_sam - 1];
+                            cin >> samochody[nr_sam - 1].s;
                             break;
                         case 2:
-                            cout << samochody[nr_sam - 1];
+                            cout << samochody[nr_sam - 1].s;
                             break;
                         case 3:
-                            vfin_sam[nr_sam - 1] >> samochody[nr_sam - 1];
+                            samochody[nr_sam - 1].fin_sam >> samochody[nr_sam - 1].s;
                             break;
                         case 4:
-                            vfout_sam[nr_sam - 1] << samochody[nr_sam - 1];
+                            samochody[nr_sam - 1].fout_sam << samochody[nr_sam - 1].s;
                             break;
                         case 5:
-                            samochody[nr_sam - 1].in_kierowca();
+                            samochody[nr_sam - 1].s.in_kierowca();
                             break;
                         case 6:
-                            samochody[nr_sam - 1].out_kierowca();
+                            samochody[nr_sam - 1].s.out_kierowca();
                             break;
                         case 7:
-                            samochody[nr_sam - 1].usun_kierowca();
+                            samochody[nr_sam - 1].s.usun_kierowca();
                             break;
                         case 8:
-                            samochody[nr_sam - 1].in_bak();
+                            samochody[nr_sam - 1].s.in_bak();
                             break;
                         case 9:
-                            samochody[nr_sam - 1].out_bak();
+                            samochody[nr_sam - 1].s.out_bak();
                             break;
                         case 10:
-                            samochody[nr_sam - 1].on_silnik();
+                            samochody[nr_sam - 1].s.on_silnik();
                             break;
                         case 11:
-                            samochody[nr_sam - 1].off_silnik();
+                            samochody[nr_sam - 1].s.off_silnik();
                             break;
                         case 12:
                             cout << "Podaj ile kilometrów chesz przejechać" << endl;
@@ -484,7 +474,7 @@ int main(int argc, char** argv) {
                                     }
                                 }
                             }
-                            samochody[nr_sam - 1].przejedz(temp_double);
+                            samochody[nr_sam - 1].s.przejedz(temp_double);
                             break;
                         case 13:
                         {
@@ -501,7 +491,7 @@ int main(int argc, char** argv) {
                                     }
                                 }
                             }
-                            samochody[nr_sam - 1].in_pasazer(miejsce);
+                            samochody[nr_sam - 1].s.in_pasazer(miejsce);
                         }
                             break;
                         case 14:
@@ -519,11 +509,11 @@ int main(int argc, char** argv) {
                                     }
                                 }
                             }
-                            samochody[nr_sam - 1].out_pasazer(miejsce);
+                            samochody[nr_sam - 1].s.out_pasazer(miejsce);
                         }
                             break;
                         case 15:
-                            samochody[nr_sam - 1].out_all_pasazer();
+                            samochody[nr_sam - 1].s.out_all_pasazer();
                             break;
                         case 16:
                         {
@@ -540,23 +530,23 @@ int main(int argc, char** argv) {
                                     }
                                 }
                             }
-                            samochody[nr_sam - 1].usun_pasazer(miejsce);
+                            samochody[nr_sam - 1].s.usun_pasazer(miejsce);
                         }
                             break;
                         case 17:
-                            samochody[nr_sam - 1].usun_all_pasazer();
+                            samochody[nr_sam - 1].s.usun_all_pasazer();
                             break;
                         case 18:
-                            samochody[nr_sam - 1].open_bagaznik();
+                            samochody[nr_sam - 1].s.open_bagaznik();
                             break;
                         case 19:
-                            samochody[nr_sam - 1].close_bagaznik();
+                            samochody[nr_sam - 1].s.close_bagaznik();
                             break;
                         case 20:
-                            samochody[nr_sam - 1].zaladuj_bagaznik();
+                            samochody[nr_sam - 1].s.zaladuj_bagaznik();
                             break;
                         case 21:
-                            samochody[nr_sam - 1].rozladuj_bagaznik();
+                            samochody[nr_sam - 1].s.rozladuj_bagaznik();
                             break;
                         case 22:
                             zakoncz = true;
@@ -575,12 +565,12 @@ int main(int argc, char** argv) {
                     cout << j << ". ";
                     cout.width(22);
                     cout << left;
-                    cout << i->get_marka();
+                    cout << i->r.get_marka();
                     cout.width(22);
                     cout << left;
-                    cout << i->get_model();
+                    cout << i->r.get_model();
                     cout.width(16);
-                    cout << i->get__rocznik() << endl;
+                    cout << i->r.get__rocznik() << endl;
                 }
             }
                 if (radiowozy.begin() == radiowozy.end()) {
@@ -600,19 +590,15 @@ int main(int argc, char** argv) {
                 }
                 if (nr_rad == 0) {
                     {
-                        radiowoz temp_rad;
-                        radiowozy.push_back(temp_rad);
+                        rad_struct temp_rad;
+                        radiowozy.push_back(move(temp_rad));
                     }
                     nr_rad = licznik_rad + 1;
                     t_str = plik_rad + to_string((int) (nr_rad)) + ".txt";
+                    
+                    radiowozy[licznik_rad].fout_rad.open(t_str.c_str());
 
-                    ofstream fout_rad;
-                    vfout_rad.push_back(move(fout_rad));
-                    vfout_rad[licznik_rad].open(t_str.c_str());
-
-                    ifstream fin_rad;
-                    vfin_rad.push_back(move(fin_rad));
-                    vfin_rad[licznik_rad].open(t_str.c_str());
+                    radiowozy[licznik_rad].fin_rad.open(t_str.c_str());
 
                     licznik_rad++;
 
@@ -675,37 +661,37 @@ int main(int argc, char** argv) {
                     switch (wybor) {
                         case 1:
 
-                            cin >> radiowozy[nr_rad - 1];
+                            cin >> radiowozy[nr_rad - 1].r;
                             break;
                         case 2:
-                            cout << radiowozy[nr_rad - 1];
+                            cout << radiowozy[nr_rad - 1].r;
                             break;
                         case 3:
-                            vfin_rad[nr_rad - 1] >> radiowozy[nr_rad - 1];
+                            radiowozy[nr_rad - 1].fin_rad >> radiowozy[nr_rad - 1].r;
                             break;
                         case 4:
-                            vfout_rad[nr_rad - 1] << radiowozy[nr_rad - 1];
+                            radiowozy[nr_rad - 1].fout_rad << radiowozy[nr_rad - 1].r;
                             break;
                         case 5:
-                            radiowozy[nr_rad - 1].in_kierowca();
+                            radiowozy[nr_rad - 1].r.in_kierowca();
                             break;
                         case 6:
-                            radiowozy[nr_rad - 1].out_kierowca();
+                            radiowozy[nr_rad - 1].r.out_kierowca();
                             break;
                         case 7:
-                            radiowozy[nr_rad - 1].usun_kierowca();
+                            radiowozy[nr_rad - 1].r.usun_kierowca();
                             break;
                         case 8:
-                            radiowozy[nr_rad - 1].in_bak();
+                            radiowozy[nr_rad - 1].r.in_bak();
                             break;
                         case 9:
-                            radiowozy[nr_rad - 1].out_bak();
+                            radiowozy[nr_rad - 1].r.out_bak();
                             break;
                         case 10:
-                            radiowozy[nr_rad - 1].on_silnik();
+                            radiowozy[nr_rad - 1].r.on_silnik();
                             break;
                         case 11:
-                            radiowozy[nr_rad - 1].off_silnik();
+                            radiowozy[nr_rad - 1].r.off_silnik();
                             break;
                         case 12:
                             cout << "Podaj ile kilometrów chesz przejechać" << endl;
@@ -718,7 +704,7 @@ int main(int argc, char** argv) {
                                     }
                                 }
                             }
-                            radiowozy[nr_rad - 1].przejedz(temp_double);
+                            radiowozy[nr_rad - 1].r.przejedz(temp_double);
                             break;
                         case 13:
                         {
@@ -735,7 +721,7 @@ int main(int argc, char** argv) {
                                     }
                                 }
                             }
-                            radiowozy[nr_rad - 1].in_pasazer(miejsce);
+                            radiowozy[nr_rad - 1].r.in_pasazer(miejsce);
                         }
                             break;
                         case 14:
@@ -753,11 +739,11 @@ int main(int argc, char** argv) {
                                     }
                                 }
                             }
-                            radiowozy[nr_rad - 1].out_pasazer(miejsce);
+                            radiowozy[nr_rad - 1].r.out_pasazer(miejsce);
                         }
                             break;
                         case 15:
-                            radiowozy[nr_rad - 1].out_all_pasazer();
+                            radiowozy[nr_rad - 1].r.out_all_pasazer();
                             break;
                         case 16:
                         {
@@ -774,35 +760,35 @@ int main(int argc, char** argv) {
                                     }
                                 }
                             }
-                            radiowozy[nr_rad - 1].usun_pasazer(miejsce);
+                            radiowozy[nr_rad - 1].r.usun_pasazer(miejsce);
                         }
                             break;
                         case 17:
-                            radiowozy[nr_rad - 1].usun_all_pasazer();
+                            radiowozy[nr_rad - 1].r.usun_all_pasazer();
                             break;
                         case 18:
-                            radiowozy[nr_rad - 1].open_bagaznik();
+                            radiowozy[nr_rad - 1].r.open_bagaznik();
                             break;
                         case 19:
-                            radiowozy[nr_rad - 1].close_bagaznik();
+                            radiowozy[nr_rad - 1].r.close_bagaznik();
                             break;
                         case 20:
-                            radiowozy[nr_rad - 1].zaladuj_bagaznik();
+                            radiowozy[nr_rad - 1].r.zaladuj_bagaznik();
                             break;
                         case 21:
-                            radiowozy[nr_rad - 1].rozladuj_bagaznik();
+                            radiowozy[nr_rad - 1].r.rozladuj_bagaznik();
                             break;
                         case 22:
-                            radiowozy[nr_rad - 1].on_dzwiek();
+                            radiowozy[nr_rad - 1].r.on_dzwiek();
                             break;
                         case 23:
-                            radiowozy[nr_rad - 1].off_dzwiek();
+                            radiowozy[nr_rad - 1].r.off_dzwiek();
                             break;
                         case 24:
-                            radiowozy[nr_rad - 1].on_swiatlo();
+                            radiowozy[nr_rad - 1].r.on_swiatlo();
                             break;
                         case 25:
-                            radiowozy[nr_rad - 1].off_swiatlo();
+                            radiowozy[nr_rad - 1].r.off_swiatlo();
                             break;
                         case 26:
                         {
@@ -838,7 +824,7 @@ int main(int argc, char** argv) {
                                     }
                                 }
                             }
-                            radiowozy[nr_rad - 1].zatrzymaj(miejsce, imie, nazwisko, wiek);
+                            radiowozy[nr_rad - 1].r.zatrzymaj(miejsce, imie, nazwisko, wiek);
                         }
                             break;
                         case 27:
@@ -856,7 +842,7 @@ int main(int argc, char** argv) {
                                     }
                                 }
                             }
-                            radiowozy[nr_rad - 1].zwolnij(miejsce);
+                            radiowozy[nr_rad - 1].r.zwolnij(miejsce);
                         }
                             break;
                         case 28:
@@ -874,11 +860,11 @@ int main(int argc, char** argv) {
                                     }
                                 }
                             }
-                            radiowozy[nr_rad - 1].out_zatrzymani(miejsce);
+                            radiowozy[nr_rad - 1].r.out_zatrzymani(miejsce);
                         }
                             break;
                         case 29:
-                            radiowozy[nr_rad - 1].out_all_zatrzymani();
+                            radiowozy[nr_rad - 1].r.out_all_zatrzymani();
                             break;
                         case 30:
                             zakoncz = true;
