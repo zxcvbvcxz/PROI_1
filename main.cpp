@@ -116,7 +116,18 @@ int main(int argc, char** argv) {
                         }
                     }
                 }
+                try{
+                    if(licznik_czolg ==10){
+                        string s = "Próba dodania 11 czolgu";
+                        throw s;
+                    }
+                }
+                catch(string){
+                    cout << "Limit czołgów możliwych do przechowywania wynosi 10\nNie można dodać kolejnego czołgu\n";                  
+                    continue;
+                }
                 if (nr_czolg == 0) {
+
                     {
                         czolgi_struct temp_czolg;
                         czolgi.push_back(move(temp_czolg));
@@ -131,9 +142,7 @@ int main(int argc, char** argv) {
                     czolgi[licznik_czolg].fin_czolg.open(t_str.c_str());
 
                     licznik_czolg++;
-//                    sort(czolgi.begin(), czolgi.end(), [](const czolgi_struct& a, const czolgi_struct & b) {
-//                        return a.cz.get__rocznik() > b.cz.get__rocznik();
-//                    });
+
 
                 } else {
                     cout << "Wybrano czolg nr." << nr_czolg << endl;
@@ -183,9 +192,6 @@ int main(int argc, char** argv) {
                     switch (wybor) {
                         case 1:
                             cin >> czolgi[nr_czolg - 1].cz;
-//                            sort(czolgi.begin(), czolgi.end(), [](const czolgi_struct& a, const czolgi_struct & b) {
-//                                return a.cz.get__rocznik() > b.cz.get__rocznik();
-//                            });
                             break;
                         case 2:
                             cout << czolgi[nr_czolg - 1].cz;
@@ -367,6 +373,16 @@ int main(int argc, char** argv) {
                             cout << "Proszę podać liczbę całkowitą większa lub równą zero z odpowiedniego zakresu" << endl;
                         }
                     }
+                }
+                try{
+                    if(licznik_sam ==10){
+                        string s = "Próba dodania 11 samochodu";
+                        throw s;
+                    }
+                }
+                catch(string){
+                    cout << "Limit samochodów możliwych do przechowywania wynosi 10\nNie można dodać kolejnego samochodu\n";                  
+                    continue;
                 }
                 if (nr_sam == 0) {
                     {
@@ -587,6 +603,16 @@ int main(int argc, char** argv) {
                             cout << "Proszę podać liczbę całkowitą większa lub równą zero z odpowiedniego zakresu" << endl;
                         }
                     }
+                }
+                try{
+                    if(licznik_rad ==10){
+                        string s = "Próba dodania 11 radiowozu";
+                        throw s;
+                    }
+                }
+                catch(string){
+                    cout << "Limit radiowozów możliwych do przechowywania wynosi 10\nNie można dodać kolejnego radiowozu\n";                  
+                    continue;
                 }
                 if (nr_rad == 0) {
                     {
